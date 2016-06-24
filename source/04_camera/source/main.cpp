@@ -142,7 +142,7 @@ static void LoadTexture() {
 }
 
 
-// draws a single frame
+// draws a single fr	ame
 static void Render() {
     // clear everything
     glClearColor(0, 0, 0, 1); // black
@@ -182,7 +182,7 @@ static void Render() {
 void Update(float secondsElapsed) {
     //rotate the cube
     const GLfloat degreesPerSecond = 180.0f;
-    gDegreesRotated += secondsElapsed * degreesPerSecond;
+//    gDegreesRotated += secondsElapsed * degreesPerSecond;
     while(gDegreesRotated > 360.0f) gDegreesRotated -= 360.0f;
 
     //move position of camera based on WASD keys, and XZ keys for up and down
@@ -207,6 +207,8 @@ void Update(float secondsElapsed) {
     const float mouseSensitivity = 0.1f;
     double mouseX, mouseY;
     glfwGetCursorPos(gWindow, &mouseX, &mouseY);
+//    std::cout<<mouseX<<" , "<<mouseY<<std::endl;
+    
     gCamera.offsetOrientation(mouseSensitivity * (float)mouseY, mouseSensitivity * (float)mouseX);
     glfwSetCursorPos(gWindow, 0, 0); //reset the mouse, so it doesn't go out of the window
 

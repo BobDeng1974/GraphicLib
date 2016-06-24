@@ -19,6 +19,7 @@
 #include <cmath>
 #include "Camera.h"
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>
 
 using namespace tdogl;
 
@@ -108,6 +109,10 @@ glm::vec3 Camera::forward() const {
 
 glm::vec3 Camera::right() const {
     glm::vec4 right = glm::inverse(orientation()) * glm::vec4(1,0,0,1);
+    glm::vec4 right1 = (orientation()) * glm::vec4(1,0,0,1);
+    std::cout<<"1:"<<right.x<<" , "<<right.y<<" , "<<right.z<<std::endl;
+    std::cout<<"1:"<<right1.x<<" , "<<right1.y<<" , "<<right1.z<<std::endl;
+    std::cout<<std::endl;
     return glm::vec3(right);
 }
 
@@ -125,7 +130,12 @@ glm::mat4 Camera::projection() const {
 }
 
 glm::mat4 Camera::view() const {
-    return orientation() * glm::translate(glm::mat4(), -_position);
+    return (orientation()) * glm::translate(glm::mat4(), -_position);
+//    glm::vec3 vec(0 , 0 , - 1);
+//    vec.y = tanf(_verticalAngle);
+//    vec.x = tanf(_horizontalAngle);
+//    glm::mat4 view = glm::lookAt(_position , _position + vec, glm::vec3(0,1,0));
+    
 }
 
 void Camera::normalizeAngles() {
