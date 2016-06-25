@@ -27,6 +27,14 @@ namespace zdogl {
         
         ~Buffer();
         
+        /**
+         copy constructor
+         */
+        Buffer(const Buffer & other);
+        
+        Buffer(GLenum bufferType , GLuint size , void * p , GLenum usage = GL_STATIC_DRAW);
+        
+        Buffer(GLenum bufferType , void * pVector , GLenum usage = GL_STATIC_DRAW);
         
         inline GLenum getBufferType() {
             return _bufferType;
@@ -44,9 +52,13 @@ namespace zdogl {
         /**
          call the glBindBuffer
          */
-        void bind();
+        inline void bind(){
+            glBindBuffer(_bufferType , _handle);
+        }
         
-        void unbind();
+        inline void unbind(){
+            glBindBuffer(_bufferType , 0);
+        }
         
     protected:
         
