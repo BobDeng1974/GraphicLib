@@ -11,4 +11,14 @@
 
 #include <stdio.h>
 
+namespace ze {
+    
+    class Application {
+        
+        
+        
+    };
+    
+}
+
 #endif /* Application_hpp */

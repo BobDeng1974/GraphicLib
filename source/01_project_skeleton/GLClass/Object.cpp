@@ -10,7 +10,8 @@
 
 using namespace zdogl;
 
-Object::Object(){
+Object::Object():
+_handle(0){
     _className = "Object";
 }
 

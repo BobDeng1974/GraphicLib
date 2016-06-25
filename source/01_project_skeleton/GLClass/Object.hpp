@@ -10,6 +10,7 @@
 #define Object_hpp
 
 #include <string>
+#include "glew.h"
 
 namespace zdogl {
     
@@ -25,9 +26,15 @@ namespace zdogl {
         
         virtual std::string toString();
         
+        inline GLuint getHandle(){
+            return _handle;
+        }
+        
     protected:
         
         std::string _className;
+        
+        GLuint _handle;
         
     };
     
