@@ -139,6 +139,7 @@
 		F6B074D11D1EA4970089A2EA /* VertexArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074CF1D1EA4970089A2EA /* VertexArray.cpp */; };
 		F6B074D41D1EA4B20089A2EA /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074D21D1EA4B20089A2EA /* Buffer.cpp */; };
 		F6B074D71D1EA5DD0089A2EA /* Texture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074D51D1EA5DD0089A2EA /* Texture2D.cpp */; };
+		F6B074DA1D1ED8670089A2EA /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074D81D1ED8670089A2EA /* Bitmap.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -280,6 +281,8 @@
 		F6B074D31D1EA4B20089A2EA /* Buffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Buffer.hpp; sourceTree = "<group>"; };
 		F6B074D51D1EA5DD0089A2EA /* Texture2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture2D.cpp; sourceTree = "<group>"; };
 		F6B074D61D1EA5DD0089A2EA /* Texture2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Texture2D.hpp; sourceTree = "<group>"; };
+		F6B074D81D1ED8670089A2EA /* Bitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
+		F6B074D91D1ED8670089A2EA /* Bitmap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bitmap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -818,6 +821,8 @@
 				F6B074C81D1D36210089A2EA /* Application.cpp */,
 				F6B074C91D1D36210089A2EA /* Application.hpp */,
 				F6B074CE1D1D44EC0089A2EA /* Macro.h */,
+				F6B074D81D1ED8670089A2EA /* Bitmap.cpp */,
+				F6B074D91D1ED8670089A2EA /* Bitmap.hpp */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1089,6 +1094,7 @@
 				F6B074BE1D1D15060089A2EA /* Camera.cpp in Sources */,
 				F6B074CA1D1D36210089A2EA /* Application.cpp in Sources */,
 				F6B074CD1D1D36360089A2EA /* Window.cpp in Sources */,
+				F6B074DA1D1ED8670089A2EA /* Bitmap.cpp in Sources */,
 				F6B074C41D1D17B60089A2EA /* Scene.cpp in Sources */,
 				F6B074BB1D1D12EC0089A2EA /* Ref.cpp in Sources */,
 				F6B074D41D1EA4B20089A2EA /* Buffer.cpp in Sources */,

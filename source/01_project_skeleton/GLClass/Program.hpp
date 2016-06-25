@@ -64,7 +64,6 @@ namespace zdogl {
          
          These are convenience methods for the glVertexAttrib* and glUniform* functions.
          */
-
         _TDOGL_PROGRAM_ATTRIB_N_UNIFORM_SETTERS(GLfloat)
         _TDOGL_PROGRAM_ATTRIB_N_UNIFORM_SETTERS(GLdouble)
         _TDOGL_PROGRAM_ATTRIB_N_UNIFORM_SETTERS(GLint)

@@ -40,7 +40,7 @@ int Application::run(){
 
     _window.terminate();
     
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 void Application::destroyInstance(){
