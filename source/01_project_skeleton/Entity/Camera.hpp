@@ -70,13 +70,19 @@ namespace ze{
         
         SYNTHESIZE(float , _moveVelo , MoveVelo)
 
-        /** A unit vector representing the direction the camera is facing */
+        /** 
+         A unit vector representing the direction the camera is facing in world coordinate system
+         */
         glm::vec3 forward();
         
-         /** A unit vector representing the direction out of the top of the camera*/
+        /**
+         A unit vector representing the direction out of the top of the camera in world coordinate system
+         */
         glm::vec3 up();
         
-        /** A unit vector representing the direction to the right of the camera*/
+        /** 
+         A unit vector representing the direction to the right of the camera in world coordinate system
+         */
         glm::vec3 right();
         
         inline void offsetPosition(glm::vec3 moveVec){
