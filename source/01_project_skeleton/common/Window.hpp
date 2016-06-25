@@ -18,13 +18,12 @@
 
 namespace zdogl {
     
-    void OnError(int errorCode, const char* msg) {
-        throw std::runtime_error(msg);
-    }
-    
     class Window : public Object {
         
+    public:
+        
         Window();
+        
         ~Window();
         
         SYNTHESIZE(GLfloat , _width , Width)
@@ -35,9 +34,27 @@ namespace zdogl {
         
         SYNTHESIZE(float , _mouseSensitivity , MouseSensitivity)
         
+        void swapBuffer();
         
+        void pollEvent();
+        
+        inline void terminate(){
+            glfwTerminate();
+        }
+        
+        inline void close(){
+            glfwSetWindowShouldClose(_GLFWwindow , GL_TRUE);
+        }
+        
+        inline int shouldClose(){
+            return glfwWindowShouldClose(_GLFWwindow);
+        }
         
         virtual bool init();
+        
+        inline double getCurTime(){
+            return glfwGetTime();
+        }
         
         //todo 键盘事件  鼠标事件
         

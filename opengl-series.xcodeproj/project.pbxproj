@@ -16,8 +16,6 @@
 		E2639A7C190D14F500B6251A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2639950190D148400B6251A /* Cocoa.framework */; };
 		E2639AAD190D150700B6251A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2639950190D148400B6251A /* Cocoa.framework */; };
 		E2639AE3190D156500B6251A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2639ADC190D156500B6251A /* main.cpp */; };
-		E2639AE4190D156500B6251A /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2639ADD190D156500B6251A /* Program.cpp */; };
-		E2639AE5190D156500B6251A /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2639ADF190D156500B6251A /* Shader.cpp */; };
 		E2639AE8190D169200B6251A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2639AE7190D169200B6251A /* OpenGL.framework */; };
 		E2639AFC190D16FF00B6251A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2639AFB190D16FF00B6251A /* IOKit.framework */; };
 		E2639B00190D174200B6251A /* fragment-shader.txt in Resources */ = {isa = PBXBuildFile; fileRef = E2639AFE190D174200B6251A /* fragment-shader.txt */; };
@@ -151,10 +149,6 @@
 		E2639A7B190D14F500B6251A /* 07_more_lighting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 07_more_lighting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2639AAC190D150700B6251A /* 08_even_more_lighting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 08_even_more_lighting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2639ADC190D156500B6251A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		E2639ADD190D156500B6251A /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
-		E2639ADE190D156500B6251A /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
-		E2639ADF190D156500B6251A /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
-		E2639AE0190D156500B6251A /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		E2639AE7190D169200B6251A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		E2639AFB190D16FF00B6251A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		E2639AFE190D174200B6251A /* fragment-shader.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "fragment-shader.txt"; sourceTree = "<group>"; };
@@ -427,10 +421,6 @@
 			isa = PBXGroup;
 			children = (
 				E2639ADC190D156500B6251A /* main.cpp */,
-				E2639ADD190D156500B6251A /* Program.cpp */,
-				E2639ADE190D156500B6251A /* Program.h */,
-				E2639ADF190D156500B6251A /* Shader.cpp */,
-				E2639AE0190D156500B6251A /* Shader.h */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -1077,11 +1067,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E29C2ACA19FCA1C400A6FCD2 /* glew.c in Sources */,
-				E2639AE4190D156500B6251A /* Program.cpp in Sources */,
 				F6B074B71D1D122B0089A2EA /* Program.cpp in Sources */,
 				F6B074B41D1D10230089A2EA /* Object.cpp in Sources */,
 				F6B074BE1D1D15060089A2EA /* Camera.cpp in Sources */,
-				E2639AE5190D156500B6251A /* Shader.cpp in Sources */,
 				F6B074CA1D1D36210089A2EA /* Application.cpp in Sources */,
 				F6B074CD1D1D36360089A2EA /* Window.cpp in Sources */,
 				F6B074C41D1D17B60089A2EA /* Scene.cpp in Sources */,

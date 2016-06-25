@@ -10,13 +10,29 @@
 #define Application_hpp
 
 #include <stdio.h>
+#include "Window.hpp"
 
 namespace ze {
     
     class Application {
         
+    public:
         
+        int run();
         
+        bool init();
+        
+        static Application * getInstance();
+        
+        static void destroyInstance();
+        
+    protected:
+        ~Application();
+        Application();
+        
+        zdogl::Window _window;
+        
+        static Application * s_pApplication;
     };
     
 }

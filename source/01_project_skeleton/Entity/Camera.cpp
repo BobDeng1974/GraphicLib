@@ -58,7 +58,7 @@ bool Camera::initLookAt(glm::vec3 lookAt){
     glm::vec3 direction = lookAt - _position;
     _verticalAngle = TO_ANGLE(atan(direction.y / direction.x));
     _horizontalAngle = TO_ANGLE(atan2f(direction.x , - direction.z));
-    normalizeAngle();
+    _normalizeAngle();
 }
 
 glm::mat4 Camera::getViewMat() const{

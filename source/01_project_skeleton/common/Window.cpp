@@ -14,7 +14,8 @@ using namespace zdogl;
 
 Window::Window():
 _GLFWwindow(nullptr),
-_mouseSensitivity(0.1f){
+_mouseSensitivity(0.1f),
+_fps(1 / 60){
     _className = "Windows";
 }
 
@@ -24,6 +25,33 @@ Window::~Window(){
 
 void Window::update(float dt){
     
+    pollEvent();
+    
+    // clear everything
+    glClearColor(0, 0, 0, 1); // black
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+
+    
+    swapBuffer();
+}
+
+static void OnError(int errorCode, const char* msg) {
+    throw std::runtime_error(msg);
+}
+
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    if (action != GLFW_PRESS)
+        return;
+    switch (key)
+    {
+        case GLFW_KEY_ESCAPE:
+            glfwSetWindowShouldClose(window, GL_TRUE);
+            break;
+        default:
+            break;
+    }
 }
 
 bool Window::initGlew(){
@@ -55,9 +83,13 @@ bool Window::initGlew(){
     return true;
 }
 
-//void OnError(int errorCode, const char* msg) {
-//    throw std::runtime_error(msg);
-//}
+void Window::pollEvent(){
+    glfwPollEvents();
+}
+
+void Window::swapBuffer(){
+    glfwSwapBuffers(_GLFWwindow);
+}
 
 bool Window::initGlfw(){
     // initialise GLFW
@@ -66,6 +98,7 @@ bool Window::initGlfw(){
         throw std::runtime_error("glfwInit failed");
     }
     
+    glfwSetKeyCallback(_GLFWwindow , key_callback);
     // open a window with GLFW
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);

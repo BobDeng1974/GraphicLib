@@ -26,7 +26,7 @@ namespace zdogl {
         
         virtual std::string toString();
         
-        inline GLuint getHandle(){
+        inline GLuint getHandle() const {
             return _handle;
         }
         

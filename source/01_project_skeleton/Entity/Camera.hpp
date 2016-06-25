@@ -61,7 +61,7 @@ namespace ze{
         inline void offsetDirection(float verticalAngle , float horizontalAngle){
             _verticalAngle += verticalAngle;
             _horizontalAngle += horizontalAngle;
-            normalizeAngle();
+            _normalizeAngle();
         }
         
         SYNTHESIZE(float , _nearPlane , NearPlane)
@@ -110,7 +110,7 @@ namespace ze{
         
     protected:
     
-        inline void normalizeAngle(){
+        inline void _normalizeAngle(){
             _horizontalAngle = fmodf(_horizontalAngle, 360.0f);
             //fmodf can return negative values, but this will make them all positive
             if(_horizontalAngle < 0.0f){
