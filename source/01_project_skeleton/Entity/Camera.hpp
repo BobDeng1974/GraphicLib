@@ -102,10 +102,6 @@ namespace ze{
             return _fieldOfView;
         }
         
-        inline void setHeadVec(glm::vec3 vec){
-            normalizeRightVec(vec);
-        }
-        
         inline void setFieldOfView(float fov){
             if (fov > _maxFov) {
                 _fieldOfView = _maxFov;
@@ -131,10 +127,6 @@ namespace ze{
             }
         }
         
-        /**
-         normalize right hand vector about this camera
-         */
-        void normalizeRightVec(glm::vec3 headVec);
         
         glm::vec3 _lookAt;
         

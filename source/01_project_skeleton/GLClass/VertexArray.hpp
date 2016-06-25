@@ -6,11 +6,11 @@
 //
 //
 
-#ifndef VertexAttribute_hpp
-#define VertexAttribute_hpp
+#ifndef VertexArray_hpp
+#define VertexArray_hpp
 
 #include <stdio.h>
 
 #include "Buffer.hpp"
 
-#endif /* VertexAttribute_hpp */
+#endif /* VertexArray_hpp */
