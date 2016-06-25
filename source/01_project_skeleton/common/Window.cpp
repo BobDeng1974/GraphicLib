@@ -105,7 +105,7 @@ bool Window::initGlfw(){
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-    _GLFWwindow = glfwCreateWindow((int)800, (int)600, "", NULL, NULL);
+    _GLFWwindow = glfwCreateWindow((int)_width , (int)_height , "" , NULL , NULL);
     if(!_GLFWwindow){
         throw std::runtime_error("glfwCreateWindow failed. Can your hardware handle OpenGL 3.2?");
     }

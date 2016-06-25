@@ -35,6 +35,12 @@ namespace zdogl {
         Program(const std::vector<Shader>& shaders);
         ~Program();
         
+        /**
+         default constructor
+         */
+        Program();
+        
+        bool init(const std::vector<Shader> &shaders);
         
         void use() const;
         

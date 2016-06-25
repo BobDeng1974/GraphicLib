@@ -10,7 +10,6 @@
 #define Buffer_hpp
 
 #include "Object.hpp"
-#include "VertexAttribute.hpp"
 
 namespace zdogl {
     

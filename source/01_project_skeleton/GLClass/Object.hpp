@@ -22,7 +22,7 @@ namespace zdogl {
         
         ~Object();
         
-        virtual bool init() = 0;
+        virtual bool init();
         
         virtual std::string toString();
         

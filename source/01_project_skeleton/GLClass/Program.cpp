@@ -15,24 +15,32 @@ using namespace zdogl;
 
 Program::Program(const std::vector<Shader>& shaders){
     
+    init(shaders);
+    
+}
+
+bool Program::init(const std::vector<Shader> &shaders){
     if(shaders.size() <= 0)
         throw std::runtime_error("No shaders were provided to create the program");
     
     //create the program object
     _handle = glCreateProgram();
-    if(_handle == 0)
+    if(_handle == 0){
         throw std::runtime_error("glCreateProgram failed");
+    }
     
     //attach all the shaders
-    for(unsigned i = 0; i < shaders.size(); ++i)
+    for(unsigned i = 0; i < shaders.size(); ++i){
         glAttachShader(_handle, shaders[i].getHandle());
+    }
     
     //link the shaders together
     glLinkProgram(_handle);
     
     //detach all the shaders
-    for(unsigned i = 0; i < shaders.size(); ++i)
+    for(unsigned i = 0; i < shaders.size(); ++i){
         glDetachShader(_handle, shaders[i].getHandle());
+    }
     
     //throw exception if linking failed
     GLint status;
@@ -47,7 +55,8 @@ Program::Program(const std::vector<Shader>& shaders){
         msg += strInfoLog;
         delete[] strInfoLog;
         
-        glDeleteProgram(_handle); _handle = 0;
+        glDeleteProgram(_handle);
+        _handle = 0;
         throw std::runtime_error(msg);
     }
 }

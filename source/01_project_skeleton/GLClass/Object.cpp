@@ -22,3 +22,7 @@ Object::~Object(){
 std::string Object::toString(){
     return _className;
 }
+
+bool Object::init(){
+    
+}
