@@ -11,4 +11,6 @@
 
 #include <stdio.h>
 
+#include "Buffer.hpp"
+
 #endif /* VertexAttribute_hpp */

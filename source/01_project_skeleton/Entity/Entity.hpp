@@ -23,6 +23,8 @@ namespace ze {
         
         ~Entity();
         
+        virtual void draw();
+        
         SYNTHESIZE(float , _scale , Scale)
         
         SYNTHESIZE(glm::vec3 , _position , Position)

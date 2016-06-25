@@ -22,3 +22,8 @@ Entity::~Entity(){
     
 }
 
+
+void Entity::draw(){
+    
+}
+

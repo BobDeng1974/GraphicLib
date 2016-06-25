@@ -136,6 +136,9 @@
 		F6B074C71D1D36020089A2EA /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074C51D1D36020089A2EA /* Shader.cpp */; };
 		F6B074CA1D1D36210089A2EA /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074C81D1D36210089A2EA /* Application.cpp */; };
 		F6B074CD1D1D36360089A2EA /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074CB1D1D36360089A2EA /* Window.cpp */; };
+		F6B074D11D1EA4970089A2EA /* VertexAttribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074CF1D1EA4970089A2EA /* VertexAttribute.cpp */; };
+		F6B074D41D1EA4B20089A2EA /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074D21D1EA4B20089A2EA /* Buffer.cpp */; };
+		F6B074D71D1EA5DD0089A2EA /* Texture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074D51D1EA5DD0089A2EA /* Texture2D.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -271,6 +274,12 @@
 		F6B074CB1D1D36360089A2EA /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../common/Window.cpp; sourceTree = "<group>"; };
 		F6B074CC1D1D36360089A2EA /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Window.hpp; path = ../common/Window.hpp; sourceTree = "<group>"; };
 		F6B074CE1D1D44EC0089A2EA /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		F6B074CF1D1EA4970089A2EA /* VertexAttribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VertexAttribute.cpp; sourceTree = "<group>"; };
+		F6B074D01D1EA4970089A2EA /* VertexAttribute.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VertexAttribute.hpp; sourceTree = "<group>"; };
+		F6B074D21D1EA4B20089A2EA /* Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buffer.cpp; sourceTree = "<group>"; };
+		F6B074D31D1EA4B20089A2EA /* Buffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Buffer.hpp; sourceTree = "<group>"; };
+		F6B074D51D1EA5DD0089A2EA /* Texture2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture2D.cpp; sourceTree = "<group>"; };
+		F6B074D61D1EA5DD0089A2EA /* Texture2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Texture2D.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -791,6 +800,12 @@
 				F6B074B61D1D122B0089A2EA /* Program.hpp */,
 				F6B074C51D1D36020089A2EA /* Shader.cpp */,
 				F6B074C61D1D36020089A2EA /* Shader.hpp */,
+				F6B074CF1D1EA4970089A2EA /* VertexAttribute.cpp */,
+				F6B074D01D1EA4970089A2EA /* VertexAttribute.hpp */,
+				F6B074D21D1EA4B20089A2EA /* Buffer.cpp */,
+				F6B074D31D1EA4B20089A2EA /* Buffer.hpp */,
+				F6B074D51D1EA5DD0089A2EA /* Texture2D.cpp */,
+				F6B074D61D1EA5DD0089A2EA /* Texture2D.hpp */,
 			);
 			path = GLClass;
 			sourceTree = "<group>";
@@ -1067,13 +1082,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E29C2ACA19FCA1C400A6FCD2 /* glew.c in Sources */,
+				F6B074D11D1EA4970089A2EA /* VertexAttribute.cpp in Sources */,
 				F6B074B71D1D122B0089A2EA /* Program.cpp in Sources */,
 				F6B074B41D1D10230089A2EA /* Object.cpp in Sources */,
+				F6B074D71D1EA5DD0089A2EA /* Texture2D.cpp in Sources */,
 				F6B074BE1D1D15060089A2EA /* Camera.cpp in Sources */,
 				F6B074CA1D1D36210089A2EA /* Application.cpp in Sources */,
 				F6B074CD1D1D36360089A2EA /* Window.cpp in Sources */,
 				F6B074C41D1D17B60089A2EA /* Scene.cpp in Sources */,
 				F6B074BB1D1D12EC0089A2EA /* Ref.cpp in Sources */,
+				F6B074D41D1EA4B20089A2EA /* Buffer.cpp in Sources */,
 				E2639AE3190D156500B6251A /* main.cpp in Sources */,
 				F6B074C11D1D15160089A2EA /* Entity.cpp in Sources */,
 				F6B074C71D1D36020089A2EA /* Shader.cpp in Sources */,
