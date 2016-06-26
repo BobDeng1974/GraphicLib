@@ -9,6 +9,16 @@
 #ifndef Scene_hpp
 #define Scene_hpp
 
-#include <stdio.h>
+#include "Entity.hpp"
+
+namespace ze {
+    
+    class Scene : public Entity{
+        
+        
+        
+    };
+    
+}
 
 #endif /* Scene_hpp */

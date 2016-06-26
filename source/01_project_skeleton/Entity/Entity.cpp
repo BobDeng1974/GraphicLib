@@ -14,7 +14,8 @@ using namespace ze;
 Entity::Entity():
 _position(0 , 0 , 0),
 _anchorPoint(0 , 0 , 0),
-_scale(1){
+_scale(1),
+_parent(nullptr){
     
 }
 
@@ -26,4 +27,17 @@ Entity::~Entity(){
 void Entity::draw(){
     
 }
+
+void Entity::addChild(ze::Entity *child){
+    
+}
+
+void Entity::removeChild(ze::Entity *child){
+    
+}
+
+void Entity::removeChildByName(std::string & name){
+    
+}
+
 

@@ -12,6 +12,8 @@
 #include "Ref.hpp"
 #include "glm/glm.hpp"
 #include "Macro.h"
+#include <vector>
+#include <string>
 
 namespace ze {
     
@@ -31,10 +33,19 @@ namespace ze {
         
         SYNTHESIZE(glm::vec3 , _anchorPoint , AnchorPoint)
         
+        virtual void addChild(Entity * child);
+        
+        virtual void removeChildByName(std::string & name);
+        
+        virtual void removeChild(Entity * child);
+        
     protected:
         
+        std::string _name;
         
+        Entity * _parent;
         
+        std::vector<Entity *> _children;
     };
     
 }
