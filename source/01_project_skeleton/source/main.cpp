@@ -16,18 +16,7 @@
  limitations under the License.
  */
 
-#include "platform.hpp"
 
-// third-party libraries
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-
-// standard C++ libraries
-#include <cassert>
-#include <iostream>
-#include <stdexcept>
-#include <cmath>
 #include "Application.hpp"
 using namespace ze;
 int main(int argc, char *argv[]) {

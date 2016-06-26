@@ -15,7 +15,13 @@ namespace ze {
     
     class Scene : public Entity{
         
+    public:
+        Scene();
+        ~Scene();
         
+        virtual bool init();
+        
+        virtual void draw();
         
     };
     

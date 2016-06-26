@@ -28,10 +28,16 @@ Director * Director::getInstance(){
 
 bool Director::init(){
     
+    _curScene = new Scene();
+    
+    _curScene->init();
+    
     return true;
 }
 
 void Director::mainLoop(float d){
+    
+    _curScene->draw();
     
 }
 

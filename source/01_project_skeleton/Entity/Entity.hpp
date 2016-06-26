@@ -27,6 +27,8 @@ namespace ze {
         
         virtual void draw();
         
+        virtual bool init();
+        
         SYNTHESIZE(float , _scale , Scale)
         
         SYNTHESIZE(glm::vec3 , _position , Position)

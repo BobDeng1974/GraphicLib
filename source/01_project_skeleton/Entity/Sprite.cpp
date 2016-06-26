@@ -7,3 +7,27 @@
 //
 
 #include "Sprite.hpp"
+
+
+using namespace ze;
+
+Sprite::Sprite(){
+    
+}
+
+Sprite::~Sprite(){
+    
+}
+
+
+
+bool Sprite::init(){
+    
+    return true;
+}
+
+void Sprite::draw(){
+    
+  // todo 
+    
+}

@@ -8,6 +8,8 @@
 
 #include "Application.hpp"
 
+
+
 extern int * pWindow;
 
 using namespace ze;
@@ -26,11 +28,14 @@ int Application::run(){
     
     double lastTime = _window.getCurTime();
     
+    
+    
     while (!_window.shouldClose()) {
         
         double curTime = _window.getCurTime();
         
         _window.update(curTime - lastTime);
+        
         
         lastTime = curTime;
         

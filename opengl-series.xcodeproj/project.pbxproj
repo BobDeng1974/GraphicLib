@@ -142,6 +142,8 @@
 		F6B074D41D1EA4B20089A2EA /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074D21D1EA4B20089A2EA /* Buffer.cpp */; };
 		F6B074D71D1EA5DD0089A2EA /* Texture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074D51D1EA5DD0089A2EA /* Texture2D.cpp */; };
 		F6B074DA1D1ED8670089A2EA /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074D81D1ED8670089A2EA /* Bitmap.cpp */; };
+		F6F914B21D2061F200FFA244 /* VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = F6F914B11D2061F200FFA244 /* VertexShader.glsl */; };
+		F6F914B41D20623F00FFA244 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = F6F914B31D20623F00FFA244 /* FragmentShader.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -289,6 +291,8 @@
 		F6B074D61D1EA5DD0089A2EA /* Texture2D.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Texture2D.hpp; sourceTree = "<group>"; };
 		F6B074D81D1ED8670089A2EA /* Bitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
 		F6B074D91D1ED8670089A2EA /* Bitmap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bitmap.hpp; sourceTree = "<group>"; };
+		F6F914B11D2061F200FFA244 /* VertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertexShader.glsl; sourceTree = "<group>"; };
+		F6F914B31D20623F00FFA244 /* FragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +452,8 @@
 			children = (
 				E2639AFE190D174200B6251A /* fragment-shader.txt */,
 				E2639AFF190D174200B6251A /* vertex-shader.txt */,
+				F6F914B11D2061F200FFA244 /* VertexShader.glsl */,
+				F6F914B31D20623F00FFA244 /* FragmentShader.glsl */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -1016,6 +1022,8 @@
 			files = (
 				E2639B08190D174200B6251A /* vertex-shader.txt in Resources */,
 				E2639B00190D174200B6251A /* fragment-shader.txt in Resources */,
+				F6F914B41D20623F00FFA244 /* FragmentShader.glsl in Resources */,
+				F6F914B21D2061F200FFA244 /* VertexShader.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

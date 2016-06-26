@@ -9,6 +9,7 @@
 #include "Window.hpp"
 #include <iostream>
 #include <stdexcept>
+#include "Director.hpp"
 
 using namespace zdogl;
 
@@ -30,11 +31,11 @@ void Window::update(float dt){
     
     pollEvent();
     
-//    // clear everything
-//    glClearColor(0, 0, 0, 1); // black
-//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    // clear everything
+    glClearColor(0, 0, 0, 1); // black
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-
+    ze::Director::getInstance()->mainLoop(dt);
     
     swapBuffer();
 }
