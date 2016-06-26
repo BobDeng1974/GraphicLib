@@ -23,11 +23,15 @@ namespace ze {
         
         void mainLoop(float d);
         
-        void setScene(Scene * scene);
+        bool init();
+        
+        inline void setScene(Scene * scene){
+            _curScene = scene;
+        }
         
     protected:
         
-        Scene * _CurSecne;
+        Scene * _curScene;
         
         Director();
         

@@ -61,6 +61,11 @@ namespace zdogl {
             glBindTexture(GL_TEXTURE_2D , 0);
         }
         
+        inline void genMipmap(){
+            bind();
+            glGenerateMipmap(GL_TEXTURE_2D);
+        }
+        
         Texture2D();
         
         /**

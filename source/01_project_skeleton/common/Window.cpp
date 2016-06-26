@@ -15,8 +15,11 @@ using namespace zdogl;
 Window::Window():
 _GLFWwindow(nullptr),
 _mouseSensitivity(0.1f),
-_fps(1 / 60){
+_fps(1 / 60),
+_width(800),
+_height(600){
     _className = "Windows";
+    init();
 }
 
 Window::~Window(){
@@ -27,9 +30,9 @@ void Window::update(float dt){
     
     pollEvent();
     
-    // clear everything
-    glClearColor(0, 0, 0, 1); // black
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//    // clear everything
+//    glClearColor(0, 0, 0, 1); // black
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
 
     
@@ -98,7 +101,6 @@ bool Window::initGlfw(){
         throw std::runtime_error("glfwInit failed");
     }
     
-    glfwSetKeyCallback(_GLFWwindow , key_callback);
     // open a window with GLFW
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -109,7 +111,8 @@ bool Window::initGlfw(){
     if(!_GLFWwindow){
         throw std::runtime_error("glfwCreateWindow failed. Can your hardware handle OpenGL 3.2?");
     }
-    
+    glfwSetKeyCallback(_GLFWwindow , key_callback);
+
     // GLFW settings
     glfwSetInputMode(_GLFWwindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glfwSetCursorPos(_GLFWwindow, 0, 0);
