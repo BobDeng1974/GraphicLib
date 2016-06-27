@@ -30,6 +30,8 @@ namespace ze {
         
         bool initVao();
         
+        bool initProgram();
+        
         virtual void draw();
         
     protected:
@@ -40,7 +42,7 @@ namespace ze {
         
         zdogl::VertexArray * _vao;
         
-        zdogl::Texture2D _texture;
+        zdogl::Texture2D * _texture;
         
     };
     

@@ -1,4 +1,5 @@
-/* 
+#version 150
+/*
   VertexShader.glsl
   opengl-series
 
@@ -21,12 +22,12 @@ uniform mat4 view;
 uniform mat4 projection;
 
 // model transform
-uniform mat4 model;
+//uniform mat4 model;
 
 void main(){
     
     texFragment = texCoor;
     
-    gl_Position = projection * view * model * vec4(vertex , 1);
+    gl_Position = projection * view * vec4(vertex , 1);
     
 }

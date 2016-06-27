@@ -7,14 +7,15 @@
 //
 
 #include "Director.hpp"
-
+#include "glm/glm.hpp"
 
 using namespace ze;
 
 Director * Director::s_pDirector = nullptr;
 
 Director::Director():
-_curScene(nullptr){
+_curScene(nullptr),
+_camera(nullptr){
     
 }
 
@@ -31,6 +32,12 @@ bool Director::init(){
     _curScene = new Scene();
     
     _curScene->init();
+    
+    _camera = new Camera();
+    
+    glm::vec3 position(0,0,10);
+    
+    _camera->setPosition(position);
     
     return true;
 }

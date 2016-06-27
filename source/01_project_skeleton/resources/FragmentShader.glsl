@@ -1,3 +1,4 @@
+#version 150
 /*
  FragmentShader.glsl
  opengl-series

@@ -22,14 +22,14 @@ VertexArray::~VertexArray(){
 GLvoid VertexArray::unbind(){
     glBindVertexArray(0);
     for (int i = 0 ; i < _buffers.size() ; i ++) {
-        _buffers.at(1).bind();
+        _buffers.at(i).bind();
     }
 }
 
 GLvoid VertexArray::bind(){
     glBindVertexArray(_handle);
     for (int i = 0 ; i < _buffers.size() ; i ++) {
-        _buffers.at(1).bind();
+        _buffers.at(i).bind();
     }
 }
 

@@ -8,13 +8,15 @@
 
 #include "Sprite.hpp"
 #include <stdlib.h>
+#include <vector>
 
 using namespace ze;
 
 Sprite::Sprite():
 _vao(nullptr),
 _vertexData(nullptr),
-_colorData(nullptr){
+_colorData(nullptr),
+_texture(nullptr){
     
 }
 
@@ -24,8 +26,26 @@ Sprite::~Sprite(){
 
 bool Sprite::initTexture(){
     Bitmap bitmap = Bitmap::loadFromFile("wooden-crate.jpg");
-    _texture.init(bitmap);
+    
+    _texture = new zdogl::Texture2D();
+    
+    _texture->init(bitmap);
 }
+
+bool Sprite::initProgram(){
+    std::vector<zdogl::Shader> shaders;
+    shaders.push_back(zdogl::Shader::create("VertexShader.glsl", GL_VERTEX_SHADER));
+    shaders.push_back(zdogl::Shader::create("FragmentShader.glsl", GL_FRAGMENT_SHADER));
+    _program = new zdogl::Program(shaders);
+}
+
+void Sprite::draw(){
+    
+    
+    
+    
+}
+
 
 bool Sprite::initVao(){
     // Make a cube out of triangles (two triangles per side)
@@ -79,34 +99,48 @@ bool Sprite::initVao(){
         1.0f, 1.0f,-1.0f,   0.0f, 0.0f,
         1.0f, 1.0f, 1.0f,   0.0f, 1.0f
     };
-    GLint size = sizeof(vertexData) * sizeof(GLfloat);
+    GLint size = sizeof(vertexData);
     _vertexData = (GLfloat *)malloc(size);
     memcpy(_vertexData , vertexData , size);
     
     
     zdogl::Buffer vbo;
     vbo.setBufferType(GL_ARRAY_BUFFER);
-    vbo.inflateBuffer(size , _vertexData , GL_STATIC_DRAW);
+    vbo.inflateBuffer(size , vertexData , GL_STATIC_DRAW);
     
     _vao = new zdogl::VertexArray();
     _vao->addBuffer(vbo);
     
+    _vao->bind();
+    
+    glEnableVertexAttribArray(_program->getAttribIndex("vertex"));
+    glVertexAttribPointer(_program->getAttribIndex("vertex"),
+                          3,
+                          GL_FLOAT,
+                          GL_FALSE,
+                          5 * sizeof(GLfloat),
+                          0);
+    
+    glEnableVertexAttribArray(_program->getAttribIndex("texCoor"));
+    glVertexAttribPointer(_program->getAttribIndex("texCoor"),
+                          2,
+                          GL_FLOAT,
+                          GL_FALSE,
+                          5 * sizeof(GLfloat),
+                          (GLvoid *)(3 * sizeof(GLfloat)));
+    
+    _vao->unbind();
     
 }
 
 bool Sprite::init(){
+    initProgram();
+    
     initTexture();
     
     initVao();
     
     return true;
-}
-
-
-void Sprite::draw(){
-    
-  // todo
-    
 }
 
 

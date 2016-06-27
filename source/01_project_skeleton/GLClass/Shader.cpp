@@ -50,7 +50,7 @@ bool Shader::init(){
 }
 
 Shader::Shader(const Shader& other){
-    
+    _handle = other._handle;
 }
 
 Shader::~Shader() {
@@ -62,7 +62,7 @@ Shader& Shader::operator = (const Shader& other) {
     return * this;
 }
 
-Shader Shader::create(std::string &filePath, GLenum shaderType){
+Shader Shader::create(std::string filePath, GLenum shaderType){
     //open file
     std::ifstream f;
     f.open(filePath.c_str(), std::ios::in | std::ios::binary);

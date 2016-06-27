@@ -37,7 +37,7 @@ namespace zdogl {
          
          @throws std::exception if an error occurs.
          */
-        static Shader create(std::string &filePath , GLenum shaderType);
+        static Shader create(std::string filePath , GLenum shaderType);
         
         /**
          Creates a shader from a string of shader source code.

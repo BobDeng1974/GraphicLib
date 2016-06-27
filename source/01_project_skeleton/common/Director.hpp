@@ -10,6 +10,7 @@
 #define Director_hpp
 
 #include "Scene.hpp"
+#include "Camera.hpp"
 
 namespace ze {
     
@@ -32,6 +33,8 @@ namespace ze {
     protected:
         
         Scene * _curScene;
+        
+        Camera * _camera;
         
         Director();
         
