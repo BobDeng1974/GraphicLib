@@ -4,10 +4,12 @@ in vec3 vert;
 in vec2 vertTexCoord;
 
 out vec2 fragTexCoord;
+out vec3 vert2;
+
 
 void main() {
     // Pass the tex coord straight through to the fragment shader
     fragTexCoord = vertTexCoord;
-    
+    vert2 = vert;
     gl_Position = vec4(vert, 1);
 }

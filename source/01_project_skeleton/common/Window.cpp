@@ -15,7 +15,6 @@ using namespace zdogl;
 
 Window::Window():
 _GLFWwindow(nullptr),
-_mouseSensitivity(0.1f),
 _fps(1 / 60),
 _width(800),
 _height(600){

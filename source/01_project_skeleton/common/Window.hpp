@@ -32,7 +32,7 @@ namespace zdogl {
         
         SYNTHESIZE(std::string , _title , Title)
         
-        SYNTHESIZE(float , _mouseSensitivity , MouseSensitivity)
+//        SYNTHESIZE(float , _mouseSensitivity , MouseSensitivity)
         
         void swapBuffer();
         

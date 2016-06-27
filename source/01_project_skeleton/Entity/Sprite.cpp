@@ -54,9 +54,9 @@ void Sprite::draw(){
     
     _texture->bind();
     
-    auto t = camera->getViewMat();
+//    auto t = camera->getViewMat();
     
-    _program->setUniform("VxP", camera->getViewMat());
+    _program->setUniform("VxP", camera->getViewProjectionMat());
     
 //    _program->setUniform("projection", camera->getProjectionMat());
     
@@ -94,7 +94,7 @@ bool Sprite::initVao(){
         1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
         
         // front
-        -1.0f,-0.8f, 1.0f,   0.0f, 1.0f,
+        -1.0f,-1.0f, 1.0f,   0.0f, 1.0f,
         1.0f,-1.0f, 1.0f,   1.0f, 1.0f,
         -1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
         1.0f,-1.0f, 1.0f,   1.0f, 1.0f,
