@@ -61,9 +61,28 @@ namespace zdogl {
             glBindTexture(GL_TEXTURE_2D , 0);
         }
         
+        /**
+         生成多级纹理
+         */
         inline void genMipmap(){
             bind();
             glGenerateMipmap(GL_TEXTURE_2D);
+        }
+        
+        /**
+         激活纹理
+         */
+        inline void active(unsigned index){
+            
+            switch (index) {
+                case 0:
+                    glActiveTexture(GL_TEXTURE0);
+                    break;
+                    
+                default:
+                    break;
+            }
+            
         }
         
         Texture2D();
