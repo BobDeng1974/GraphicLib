@@ -14,6 +14,7 @@
 #include "Macro.h"
 #include <vector>
 #include <string>
+#include "Program.hpp"
 
 namespace ze {
     
@@ -48,6 +49,8 @@ namespace ze {
         Entity * _parent;
         
         std::vector<Entity *> _children;
+        
+        zdogl::Program  * _program;
     };
     
 }

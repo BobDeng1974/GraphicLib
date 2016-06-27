@@ -12,6 +12,7 @@
 #include "Entity.hpp"
 #include "glew.h"
 #include "VertexArray.hpp"
+#include "Texture2D.hpp"
 
 namespace ze {
     
@@ -25,6 +26,10 @@ namespace ze {
         
         virtual bool init();
         
+        bool initTexture();
+        
+        bool initVao();
+        
         virtual void draw();
         
     protected:
@@ -35,7 +40,7 @@ namespace ze {
         
         zdogl::VertexArray * _vao;
         
-        
+        zdogl::Texture2D _texture;
         
     };
     

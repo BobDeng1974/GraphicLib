@@ -21,9 +21,11 @@ Scene::~Scene(){
 
 bool Scene::init(){
     
-    Sprite * Sprite = new class Sprite();
+    Sprite * sprite = new Sprite();
     
-    addChild(Sprite);
+    sprite->init();
+    
+    addChild(sprite);
     
     return true;
 }
