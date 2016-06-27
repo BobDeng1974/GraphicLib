@@ -28,6 +28,6 @@ bool Sprite::init(){
 
 void Sprite::draw(){
     
-  // todo 
+  // todo
     
 }
