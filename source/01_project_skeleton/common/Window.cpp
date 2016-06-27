@@ -17,7 +17,8 @@ Window::Window():
 _GLFWwindow(nullptr),
 _fps(1 / 60),
 _width(800),
-_height(600){
+_height(600),
+_inputManager(nullptr){
     _className = "Windows";
     init();
 }
@@ -35,6 +36,8 @@ void Window::update(float dt){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     ze::Director::getInstance()->mainLoop(dt);
+    
+    _inputManager->update(dt);
     
     swapBuffer();
 }
@@ -100,6 +103,8 @@ bool Window::initGlfw(){
     if(!glfwInit()){
         throw std::runtime_error("glfwInit failed");
     }
+    
+    _inputManager = new ze::InputManager();
     
     // open a window with GLFW
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);

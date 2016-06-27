@@ -26,6 +26,11 @@ namespace ze {
         
         static void destroyInstance();
         
+        inline zdogl::Window * getWindow(){
+            return &_window;
+        }
+        
+        
     protected:
         ~Application();
         Application();

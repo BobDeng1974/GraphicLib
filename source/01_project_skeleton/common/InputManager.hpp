@@ -10,6 +10,8 @@
 #define InputManager_hpp
 
 #include "Ref.hpp"
+#include "Macro.h"
+#include "glm/glm.hpp"
 
 namespace ze {
     
@@ -19,7 +21,25 @@ namespace ze {
     class InputManager : public Ref{
         
     public:
+        // 鼠标灵敏度
+        SYNTHESIZE(float , _mouseSensitivity , MouseSensitivity);
+
+        InputManager();
+        ~InputManager();
         
+        void update(float dt);
+        
+        void onMouseEvent(float dt);
+        
+        void onKeyEvent(float dt);
+        
+        int isPress(int key);
+        
+        glm::vec2 getCursorPos();
+        
+        void setCursorPos(float x , float y);
+        
+    protected:
         
         
     };

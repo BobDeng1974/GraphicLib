@@ -15,6 +15,7 @@
 #include <GLFW/glfw3.h>
 #include "Macro.h"
 #include "glm/glm.hpp"
+#include "InputManager.hpp"
 
 namespace zdogl {
     
@@ -65,11 +66,15 @@ namespace zdogl {
         
         void update(float dt);
         
-        inline void setCurSorPos(double x , double y){
+        inline int isPress(int key){
+            return glfwGetKey(_GLFWwindow , key);
+        }
+        
+        inline void setCursorPos(double x , double y){
             glfwSetCursorPos(_GLFWwindow , x , y);
         }
         
-        inline glm::vec2 getCurSorPos(){
+        inline glm::vec2 getCursorPos(){
             double x , y;
             glfwGetCursorPos(_GLFWwindow , &x , &y);
             return glm::vec2(x , y);
@@ -80,6 +85,8 @@ namespace zdogl {
         bool initGlfw();
         
         bool initGlew();
+        
+        ze::InputManager * _inputManager;
         
         GLFWwindow * _GLFWwindow;
         

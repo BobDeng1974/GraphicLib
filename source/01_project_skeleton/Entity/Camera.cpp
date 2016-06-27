@@ -21,7 +21,7 @@ _nearPlane(1),
 _fieldOfView(50),
 _maxPitch(80),
 _viewportAspectRatio(4 / 3.0f),
-_moveVelo(0.1),
+_moveVelo(0.07),
 _lookAt(0 , 0 , -1),
 _headVec(0 , 1 , 0){
     
