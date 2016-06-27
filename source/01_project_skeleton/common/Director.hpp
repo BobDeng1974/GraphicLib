@@ -30,6 +30,10 @@ namespace ze {
             _curScene = scene;
         }
         
+        inline Camera * getCamera(){
+            return _camera;
+        }
+        
     protected:
         
         Scene * _curScene;

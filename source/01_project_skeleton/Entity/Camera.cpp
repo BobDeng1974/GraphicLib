@@ -20,7 +20,7 @@ _farPlane(100),
 _nearPlane(1),
 _fieldOfView(50),
 _maxPitch(80),
-_viewportAspectRatio(0.75f),
+_viewportAspectRatio(4 / 3),
 _moveVelo(0.1),
 _lookAt(0 , 0 , -1),
 _headVec(0 , 1 , 0){
@@ -56,6 +56,7 @@ glm::vec3 Camera::right(){
 bool Camera::initLookAt(glm::vec3 lookAt){
     assert(lookAt != _position);
     glm::vec3 direction = lookAt - _position;
+    auto ddd = atan(direction.y / direction.x);
     _verticalAngle = TO_ANGLE(atan(direction.y / direction.x));
     _horizontalAngle = TO_ANGLE(atan2f(direction.x , - direction.z));
     _normalizeAngle();

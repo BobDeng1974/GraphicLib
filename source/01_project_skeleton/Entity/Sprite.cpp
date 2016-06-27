@@ -9,6 +9,8 @@
 #include "Sprite.hpp"
 #include <stdlib.h>
 #include <vector>
+#include "Director.hpp"
+#include "glm/glm.hpp"
 
 using namespace ze;
 
@@ -41,8 +43,32 @@ bool Sprite::initProgram(){
 
 void Sprite::draw(){
     
+    auto camera = Director::getInstance()->getCamera();
     
+    //启用shader程序
+    _program->use();
     
+    _vao->bind();
+    
+    _texture->active(0);
+    
+    _texture->bind();
+    
+    auto t = camera->getViewMat();
+    
+    _program->setUniform("VxP", camera->getViewMat());
+    
+//    _program->setUniform("projection", camera->getProjectionMat());
+    
+    _program->setUniform("tex", 0);
+    
+    glDrawArrays(GL_TRIANGLES , 0 , 36);
+    
+    _vao->unbind();
+    
+    _texture->unbind();
+    
+    _program->stopUsing();
     
 }
 
@@ -68,7 +94,7 @@ bool Sprite::initVao(){
         1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
         
         // front
-        -1.0f,-1.0f, 1.0f,   0.0f, 1.0f,
+        -1.0f,-0.8f, 1.0f,   0.0f, 1.0f,
         1.0f,-1.0f, 1.0f,   1.0f, 1.0f,
         -1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
         1.0f,-1.0f, 1.0f,   1.0f, 1.0f,

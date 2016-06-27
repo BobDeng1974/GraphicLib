@@ -35,9 +35,11 @@ bool Director::init(){
     
     _camera = new Camera();
     
-    glm::vec3 position(0,0,10);
+    glm::vec3 position(0,0,2.1);
     
     _camera->setPosition(position);
+    
+    _camera->initLookAt(glm::vec3(0,-1,0));
     
     return true;
 }
