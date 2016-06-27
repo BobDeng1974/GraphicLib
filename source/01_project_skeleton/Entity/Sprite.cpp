@@ -11,6 +11,10 @@
 #include <vector>
 #include "Director.hpp"
 #include "glm/glm.hpp"
+#include <glm/gtc/matrix_transform.hpp>
+
+
+
 
 using namespace ze;
 
@@ -18,7 +22,8 @@ Sprite::Sprite():
 _vao(nullptr),
 _vertexData(nullptr),
 _colorData(nullptr),
-_texture(nullptr){
+_texture(nullptr),
+_rotate(0){
     
 }
 
@@ -41,7 +46,7 @@ bool Sprite::initProgram(){
     _program = new zdogl::Program(shaders);
 }
 
-void Sprite::draw(){
+void Sprite::draw(float dt){
     
     auto camera = Director::getInstance()->getCamera();
     
@@ -54,11 +59,20 @@ void Sprite::draw(){
     
     _texture->bind();
     
-//    auto t = camera->getViewMat();
+    if (_position.x < 0.1f) {
+        _rotate += dt * 180;
+        while (_rotate > 360) {
+            _rotate -= 360;
+        }
+    }
+    
+    glm::mat4 model = glm::rotate(glm::mat4() , glm::radians(_rotate), glm::vec3(0,1,0));
+    model = glm::translate(model , _position);
+    
+    _program->setUniform("model", model);
     
     _program->setUniform("VxP", camera->getViewProjectionMat());
     
-//    _program->setUniform("projection", camera->getProjectionMat());
     
     _program->setUniform("tex", 0);
     

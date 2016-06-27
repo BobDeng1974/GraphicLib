@@ -26,7 +26,7 @@ namespace ze {
         
         ~Entity();
         
-        virtual void draw();
+        virtual void draw(float dt);
         
         virtual bool init();
         

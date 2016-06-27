@@ -46,7 +46,7 @@ bool Director::init(){
 
 void Director::mainLoop(float d){
     
-    _curScene->draw();
+    _curScene->draw(d);
     
 }
 

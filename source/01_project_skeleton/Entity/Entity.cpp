@@ -29,7 +29,7 @@ bool Entity::init(){
     return true;
 }
 
-void Entity::draw(){
+void Entity::draw(float dt){
     
 }
 

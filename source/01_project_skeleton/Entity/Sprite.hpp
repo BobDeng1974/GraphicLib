@@ -32,9 +32,11 @@ namespace ze {
         
         bool initProgram();
         
-        virtual void draw();
+        virtual void draw(float dt);
         
     protected:
+        //角度
+        GLfloat _rotate;
         
         GLfloat * _vertexData;
         

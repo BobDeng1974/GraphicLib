@@ -21,7 +21,7 @@ namespace ze {
         
         virtual bool init();
         
-        virtual void draw();
+        virtual void draw(float dt);
         
     };
     
