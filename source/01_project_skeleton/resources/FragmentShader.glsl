@@ -15,6 +15,8 @@ out vec4 finalColor;
 
 void main(){
     
-    finalColor = texture(tex , texFragment);
+    vec4 black = vec4(0,0,0,1);
+    
+    finalColor = mix(texture(tex , texFragment) , black , 0.1);
     
 }

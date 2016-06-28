@@ -15,6 +15,9 @@ in vec2 texCoor;
 
 out vec2 texFragment;
 
+//
+uniform mat4 model;
+
 //// view transform (with camera)
 //uniform mat4 view;
 
@@ -28,6 +31,6 @@ void main(){
     
     texFragment = texCoor;
     
-    gl_Position = VxP * vec4(vertex , 1);
+    gl_Position = VxP * model * vec4(vertex , 1);
     
 }
