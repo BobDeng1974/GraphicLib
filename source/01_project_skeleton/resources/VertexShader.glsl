@@ -7,21 +7,17 @@
 
 */
 
-// vertex coordinate
+
+
 in vec3 vertex;
+in vec2 vertTexCoor;
+in vec3 normal;
 
-//texture coordinate
-in vec2 texCoor;
+out vec2 fragTexCoor;
+out vec3 Normal;
+out vec3 fragPos;
 
-out vec2 texFragment;
-
-//
 uniform mat4 model;
-
-//// view transform (with camera)
-//uniform mat4 view;
-
-// projection transform
 uniform mat4 VxP;
 
 // model transform
@@ -29,8 +25,19 @@ uniform mat4 VxP;
 
 void main(){
     
-    texFragment = texCoor;
+    Normal = normalize(vec3(model * vec4(normal , 0)));
     
-    gl_Position = VxP * model * vec4(vertex , 1);
+    fragPos = vec3(model * vec4(vertex , 1.0));
+    
+    fragTexCoor = vertTexCoor;
+    
+    gl_Position = VxP * model * vec4(vertex , 1.0);
     
 }
+
+
+
+
+
+
+

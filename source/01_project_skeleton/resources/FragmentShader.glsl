@@ -9,14 +9,82 @@
 
 uniform sampler2D tex;
 
-in vec2 texFragment;
+uniform struct Light {
+    //光源位置
+    vec3 position;
+    //光源颜色
+    vec3 intensities;
+} light;
+
+
+
+uniform struct Camera{
+    vec3 position;
+    vec3 dir;
+} camera;
+
+
+in vec3 fragPos;
+in vec2 fragTexCoor;
+in vec3 Normal;
 
 out vec4 finalColor;
 
 void main(){
     
-    vec4 black = vec4(0,0,0,1);
+    float ambient = 0.1f;
     
-    finalColor = mix(texture(tex , texFragment) , black , 0.1);
+    vec4 objectColor = texture(tex , fragTexCoor);
+    
+    
+    vec3 lightDir = normalize(light.position - fragPos);
+    
+    float cosTheta = max(dot(Normal , lightDir) , 0);
+    
+    vec3 diffuse = cosTheta * light.intensities;
+    
+    
+    vec3 fragToCamera = normalize(camera.position - fragPos);
+    // 光的反射向量
+    vec3 reflectVec = reflect(-lightDir , Normal);
+    
+    // 物体的反光程度 详情请绘制曲线
+    float spec = pow(max(dot(reflectVec , fragToCamera) , 0.0) , 64);
+    // 高光强度系数
+    float specularFactor = 0.5;
+    
+    vec3 specular = spec * light.intensities * specularFactor;
+    
+    
+    finalColor = vec4(objectColor.rgb * (ambient + specular ) , objectColor.a);
+    // for test
+//    finalColor = vec4(objectColor.rgb * (ambient + fragToCamera ) , objectColor.a);
+
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

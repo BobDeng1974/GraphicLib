@@ -13,7 +13,7 @@
 #include "glm/glm.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 
-
+#include "Application.hpp"
 
 
 using namespace ze;
@@ -49,9 +49,17 @@ bool Sprite::initProgram(){
     _program = new zdogl::Program(shaders);
 }
 
+
 void Sprite::draw(float dt){
     
     auto camera = Director::getInstance()->getCamera();
+    
+    auto window = ze::Application::getInstance()->getWindow();
+    
+    
+    if (window->isPress('F')) {
+//        factor = factor > 0.5 ? 0 : 1;
+    }
     
     //启用shader程序
     _program->use();
@@ -63,14 +71,20 @@ void Sprite::draw(float dt){
     _texture->bind();
     
     if (_position.x < 0.1f) {
-        _rotate += dt * 180;
+        _rotate += dt * 45;
         while (_rotate > 360) {
             _rotate -= 360;
         }
     }
     
-    glm::mat4 model = glm::rotate(glm::mat4() , glm::radians(_rotate), glm::vec3(0,1,0));
+    glm::mat4 model = glm::rotate(glm::mat4() , glm::radians(-_rotate), glm::vec3(0,1,0));
     model = glm::translate(model , _position);
+    
+//    _program->setUniform("light.position", camera->getPosition());
+    _program->setUniform("light.position",  glm::vec3(0,0,5));
+    _program->setUniform("light.intensities", glm::vec3(1,1,1));
+    
+    _program->setUniform("camera.position", camera->getPosition());
     
     _program->setUniform("model", model);
     
@@ -164,8 +178,16 @@ bool Sprite::initVao(){
                           8 * sizeof(GLfloat),
                           0);
     
-    glEnableVertexAttribArray(_program->getAttribIndex("texCoor"));
-    glVertexAttribPointer(_program->getAttribIndex("texCoor"),
+    glEnableVertexAttribArray(_program->getAttribIndex("normal"));
+    glVertexAttribPointer(_program->getAttribIndex("normal"),
+                          3,
+                          GL_FLOAT,
+                          GL_FALSE,
+                          8 * sizeof(GLfloat),
+                          (GLvoid *)(5 * sizeof(GLfloat)));
+    
+    glEnableVertexAttribArray(_program->getAttribIndex("vertTexCoor"));
+    glVertexAttribPointer(_program->getAttribIndex("vertTexCoor"),
                           2,
                           GL_FLOAT,
                           GL_FALSE,
