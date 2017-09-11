@@ -21,9 +21,15 @@ namespace ze {
     class InputManager : public Ref{
         
     public:
-        // 鼠标灵敏度
-        SYNTHESIZE(float , _mouseSensitivity , MouseSensitivity);
-
+        
+        void setMouseSensitivity(double val){
+            _mouseSensitivity = val;
+        }
+        
+        double getMouseSensitivity(){
+            return _mouseSensitivity;
+        }
+        
         InputManager();
         ~InputManager();
         
@@ -41,6 +47,8 @@ namespace ze {
         
     protected:
         
+        // 鼠标灵敏度
+        double _mouseSensitivity;
         
     };
     

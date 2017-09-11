@@ -141,7 +141,7 @@ static FormatConverterFunc ConverterFuncForFormats(Bitmap::Format srcFormat, Bit
 }
 
 inline unsigned GetPixelOffset(unsigned col, unsigned row, unsigned width, unsigned height, Bitmap::Format format) {
-    return (row*width + col)*format;
+    return (row * width + col) * format;
 }
 
 inline bool RectsOverlap(unsigned srcCol, unsigned srcRow, unsigned destCol, unsigned destRow, unsigned width, unsigned height){
@@ -224,7 +224,7 @@ void Bitmap::flipVertically() {
         memcpy(oppositeRow, rowBuffer, rowSize);
     }
     
-    delete rowBuffer;
+    delete [] rowBuffer;
 }
 
 void Bitmap::rotate90CounterClockwise() {
