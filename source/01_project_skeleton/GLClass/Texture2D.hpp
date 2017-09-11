@@ -34,7 +34,7 @@ namespace zdogl {
                 GLint minMagFiler = GL_LINEAR,
                 GLint wrapMode = GL_CLAMP_TO_EDGE);
 
-        static Texture2D * loadFromFile(std::string & filePath ,
+        static Texture2D * loadFromFile(const std::string & filePath ,
                                         GLint minMagFiler = GL_LINEAR,
                                         GLint wrapMode = GL_CLAMP_TO_EDGE);
         
@@ -72,17 +72,8 @@ namespace zdogl {
         /**
          激活纹理
          */
-        inline void active(unsigned index){
-            
-            switch (index) {
-                case 0:
-                    glActiveTexture(GL_TEXTURE0);
-                    break;
-                    
-                default:
-                    break;
-            }
-            
+        inline void active(GLuint index){
+            glActiveTexture(GL_TEXTURE0 + index);
         }
         
         Texture2D();

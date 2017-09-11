@@ -22,7 +22,7 @@ VertexArray::~VertexArray(){
 GLvoid VertexArray::unbind(){
     glBindVertexArray(0);
     for (int i = 0 ; i < _buffers.size() ; i ++) {
-        _buffers.at(i).bind();
+        _buffers.at(i).unbind();
     }
 }
 

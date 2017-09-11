@@ -33,8 +33,6 @@ namespace zdogl {
         
         SYNTHESIZE(std::string , _title , Title)
         
-//        SYNTHESIZE(float , _mouseSensitivity , MouseSensitivity)
-        
         void swapBuffer();
         
         void pollEvent();

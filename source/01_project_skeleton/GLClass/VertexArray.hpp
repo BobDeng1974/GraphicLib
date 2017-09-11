@@ -29,8 +29,6 @@ namespace zdogl {
         
         GLvoid addBuffer(Buffer buffer);
         
-//        GLvoid removeBuffer();
-        
     protected:
         
         std::vector<Buffer> _buffers;

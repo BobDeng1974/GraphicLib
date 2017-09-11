@@ -51,7 +51,7 @@ bool Texture2D::init(const ze::Bitmap &bitmap ,
                  bitmap.getPixelBuffer());
     unbind();
     
-    return  true;
+    return true;
 }
 
 Texture2D::Texture2D(const ze::Bitmap &bitmap ,
@@ -61,7 +61,7 @@ Texture2D::Texture2D(const ze::Bitmap &bitmap ,
     init(bitmap , minMagFiler , wrapMode);
 }
 
-Texture2D * Texture2D::loadFromFile(std::string & filePath ,
+Texture2D * Texture2D::loadFromFile(const std::string & filePath ,
                                     GLint minMagFiler /* = GL_LINEAR */ ,
                                     GLint wrapMode /* = GL_CLAMP_TO_EDGE */){
     Texture2D * ret = new Texture2D();
