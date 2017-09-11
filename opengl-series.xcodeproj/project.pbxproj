@@ -131,6 +131,7 @@
 		F61DF4E91D1F8FA200E269A8 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F61DF4E71D1F8FA200E269A8 /* Sprite.cpp */; };
 		F6477C0A1D20E4810049474C /* wooden-crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6477C091D20E4810049474C /* wooden-crate.jpg */; };
 		F6477C151D216DE20049474C /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6477C131D216DE20049474C /* InputManager.cpp */; };
+		F64DCAF41F652628004D4E51 /* TextureCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F64DCAF21F652628004D4E51 /* TextureCube.cpp */; };
 		F6B074B41D1D10230089A2EA /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074B21D1D10230089A2EA /* Object.cpp */; };
 		F6B074B71D1D122B0089A2EA /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074B51D1D122B0089A2EA /* Program.cpp */; };
 		F6B074BB1D1D12EC0089A2EA /* Ref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074B91D1D12EC0089A2EA /* Ref.cpp */; };
@@ -269,6 +270,8 @@
 		F6477C091D20E4810049474C /* wooden-crate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wooden-crate.jpg"; sourceTree = "<group>"; };
 		F6477C131D216DE20049474C /* InputManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
 		F6477C141D216DE20049474C /* InputManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputManager.hpp; sourceTree = "<group>"; };
+		F64DCAF21F652628004D4E51 /* TextureCube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureCube.cpp; sourceTree = "<group>"; };
+		F64DCAF31F652628004D4E51 /* TextureCube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureCube.hpp; sourceTree = "<group>"; };
 		F6B074B21D1D10230089A2EA /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		F6B074B31D1D10230089A2EA /* Object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
 		F6B074B51D1D122B0089A2EA /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
@@ -434,6 +437,7 @@
 		E2639AD9190D156500B6251A /* 01_project_skeleton */ = {
 			isa = PBXGroup;
 			children = (
+				F64DCAF11F651CC8004D4E51 /* logic */,
 				F6B074B81D1D12E00089A2EA /* common */,
 				F6B074B01D1D0FDA0089A2EA /* Entity */,
 				F6B074B11D1D0FDA0089A2EA /* GLClass */,
@@ -797,6 +801,14 @@
 			name = common;
 			sourceTree = "<group>";
 		};
+		F64DCAF11F651CC8004D4E51 /* logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = logic;
+			path = source/01_project_skeleton/logic;
+			sourceTree = SOURCE_ROOT;
+		};
 		F6B074B01D1D0FDA0089A2EA /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -829,6 +841,8 @@
 				F6B074D31D1EA4B20089A2EA /* Buffer.hpp */,
 				F6B074D51D1EA5DD0089A2EA /* Texture2D.cpp */,
 				F6B074D61D1EA5DD0089A2EA /* Texture2D.hpp */,
+				F64DCAF21F652628004D4E51 /* TextureCube.cpp */,
+				F64DCAF31F652628004D4E51 /* TextureCube.hpp */,
 			);
 			path = GLClass;
 			sourceTree = "<group>";
@@ -1117,6 +1131,7 @@
 				F6B074D11D1EA4970089A2EA /* VertexArray.cpp in Sources */,
 				F6B074B71D1D122B0089A2EA /* Program.cpp in Sources */,
 				F6B074B41D1D10230089A2EA /* Object.cpp in Sources */,
+				F64DCAF41F652628004D4E51 /* TextureCube.cpp in Sources */,
 				F6B074D71D1EA5DD0089A2EA /* Texture2D.cpp in Sources */,
 				F6B074BE1D1D15060089A2EA /* Camera.cpp in Sources */,
 				F6B074CA1D1D36210089A2EA /* Application.cpp in Sources */,

@@ -32,9 +32,13 @@ out vec4 finalColor;
 
 void main(){
     
-    float ambient = 0.1f;
+    float ambient = 0.2f;
     
     vec4 objectColor = texture(tex , fragTexCoor);
+    
+//    vec4 objectColor = vec4(vec3(1.0 - texture(tex , fragTexCoor)) , 1.0);
+
+//    float v = 0.299 * objectColor.r + 0.587 * objectColor.g + 0.114 * objectColor.b;
     
     
     vec3 lightDir = normalize(light.position - fragPos);
@@ -51,15 +55,11 @@ void main(){
     // 物体的反光程度 详情请绘制曲线
     float spec = pow(max(dot(reflectVec , fragToCamera) , 0.0) , 64);
     // 高光强度系数
-    float specularFactor = 0.5;
+    float specularFactor = 1.95;
     
     vec3 specular = spec * light.intensities * specularFactor;
     
-    
     finalColor = vec4(objectColor.rgb * (ambient + specular ) , objectColor.a);
-    // for test
-//    finalColor = vec4(objectColor.rgb * (ambient + fragToCamera ) , objectColor.a);
-
     
 }
 
