@@ -10,6 +10,7 @@
 #define Scene_hpp
 
 #include "Entity.hpp"
+#include "TextureCube.hpp"
 
 namespace ze {
     
@@ -22,6 +23,11 @@ namespace ze {
         virtual bool init();
         
         virtual void draw(float dt);
+        
+        GLuint loadCubeMap(const std::vector<GLchar *> names);
+        
+    protected:
+        zdogl::TextureCube _textureCube;
         
     };
     

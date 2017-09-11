@@ -32,12 +32,9 @@ Sprite::~Sprite(){
 }
 
 bool Sprite::initTexture(){
-    Bitmap bitmap = Bitmap::loadFromFile("wooden-crate.jpg");
     
-    _texture = new zdogl::Texture2D();
-    
-    
-    _texture->init(bitmap);
+    _texture = zdogl::Texture2D::loadFromFile("wooden-crate.jpg");
+
     
     _texture->genMipmap();
 }

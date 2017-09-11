@@ -41,12 +41,18 @@ void Entity::removeChild(ze::Entity *child){
     for (auto iter = _children.begin() ; iter != _children.end(); iter ++) {
         if (*(iter) == child) {
             _children.erase(iter);
+            return;
         }
     }
 }
 
-void Entity::removeChildByName(std::string & name){
-    
+void Entity::removeChildByName(const std::string & name){
+    for (auto iter = _children.begin() ; iter != _children.end() ; ++iter) {
+        if ((*iter)->getName() == name) {
+            _children.erase(iter);
+            return;
+        }
+    }
 }
 
 

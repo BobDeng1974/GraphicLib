@@ -30,23 +30,55 @@ namespace ze {
         
         virtual bool init();
         
-        SYNTHESIZE(float , _scale , Scale)
+        virtual void setScale(double scale){
+            this->_scale = scale;
+        }
         
-        SYNTHESIZE(glm::vec3 , _position , Position)
+        virtual double getScale(){
+            return _scale;
+        }
+
+        virtual glm::vec3 getPosition(){
+            return _position;
+        }
         
-        SYNTHESIZE(glm::vec3 , _anchorPoint , AnchorPoint)
+        void setPosition(glm::vec3 position){
+            _position = position;
+        }
+        
+        virtual glm::vec3 getAnchorPoint(){
+            return _anchorPoint;
+        }
+        
+        virtual void setAnchorPoint(glm::vec3 anchorPoint){
+            _anchorPoint = anchorPoint;
+        }
         
         virtual void addChild(Entity * child);
         
-        virtual void removeChildByName(std::string & name);
+        virtual void removeChildByName(const std::string & name);
         
         virtual void removeChild(Entity * child);
+        
+        virtual void setName(const std::string name){
+            _name = name;
+        }
+        
+        virtual std::string getName(){
+            return _name;
+        }
         
     protected:
         
         std::string _name;
         
         Entity * _parent;
+        
+        double _scale;
+        
+        glm::vec3 _position;
+        
+        glm::vec3 _anchorPoint;
         
         std::vector<Entity *> _children;
         
