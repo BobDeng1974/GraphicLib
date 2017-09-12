@@ -13,6 +13,8 @@
 
 #define TO_ANGLE(rad) (rad) / PI * 180
 
+#define STRINGIFY(A)  #A
+
 
 /**
  generate getter and setter for attribute
