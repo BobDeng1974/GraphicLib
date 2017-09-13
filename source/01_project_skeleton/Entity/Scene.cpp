@@ -18,6 +18,13 @@ Scene::Scene(){
 Scene::~Scene(){
     
 }
+
+Scene * Scene::create(){
+    Scene * ret = new Scene();
+    ret->init();
+    return ret;
+}
+
 static GLenum TextureFormatForBitmapFormat(ze::Bitmap::Format format)
 {
     switch (format) {
@@ -28,54 +35,31 @@ static GLenum TextureFormatForBitmapFormat(ze::Bitmap::Format format)
         default: throw std::runtime_error("Unrecognised Bitmap::Format");
     }
 }
-GLuint Scene::loadCubeMap(const std::vector<GLchar *> faces){
-    GLuint textureID;
-    glGenTextures(1, &textureID);
-    glActiveTexture(GL_TEXTURE0);
+GLuint Scene::loadCubeMap(const std::vector<GLchar *> names){
+    _textureCube = zdogl::TextureCube(names);
     
-    int width,height;
-    unsigned char* image;
     
-    glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
-    for(GLuint i = 0; i < faces.size(); i++)
-    {
-        ze::Bitmap bitmap = ze::Bitmap::loadFromFile(faces[i]);
-//        image = SOIL_load_image(faces[i], &width, &height, 0, SOIL_LOAD_RGB);
-//        glTexImage2D(
-//                     GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0,
-//                     GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, bitmap.getPixel(<#unsigned int width#>, <#unsigned int height#>)
-//                     );
-        glTexImage2D(GL_TEXTURE_2D,
-                     0,
-                     TextureFormatForBitmapFormat(bitmap.getFormat()),
-                     (GLsizei)bitmap.getWidth(),
-                     (GLsizei)bitmap.getHeight(),
-                     0,
-                     TextureFormatForBitmapFormat(bitmap.getFormat()),
-                     GL_UNSIGNED_BYTE,
-                     bitmap.getPixelBuffer());
-    }
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-    glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
     
-    return textureID;
+    return _textureCube.getHandle();
+}
+
+bool Scene::initVao(){
+    return true;
+}
+
+bool Scene::initProgram(){
+    return true;
 }
 
 bool Scene::init(){
     
-    Sprite * sprite = new Sprite();
-    
-    sprite->init();
+    Sprite * sprite = Sprite::create();
+
     sprite->setPosition(glm::vec3(5 , 0 , 0));
     addChild(sprite);
     
-    sprite = new Sprite();
+    sprite = Sprite::create();
     
-    sprite->init();
     addChild(sprite);
     
     return true;

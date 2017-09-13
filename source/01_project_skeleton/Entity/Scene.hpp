@@ -11,6 +11,7 @@
 
 #include "Entity.hpp"
 #include "TextureCube.hpp"
+#include "VertexArray.hpp"
 
 namespace ze {
     
@@ -20,14 +21,27 @@ namespace ze {
         Scene();
         ~Scene();
         
+        static Scene * create();
+        
         virtual bool init();
+        
+        virtual bool initVao();
+        
+        virtual bool initProgram();
         
         virtual void draw(float dt);
         
         GLuint loadCubeMap(const std::vector<GLchar *> names);
         
+        
     protected:
         zdogl::TextureCube _textureCube;
+        
+        GLfloat * _vertexData;
+        
+        GLfloat * _colorData;
+        
+        zdogl::VertexArray * _vao;
         
     };
     

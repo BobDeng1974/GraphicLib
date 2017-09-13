@@ -26,6 +26,8 @@ namespace ze {
         
         virtual bool init();
         
+        static Sprite * create();
+        
         bool initTexture();
         
         bool initVao();

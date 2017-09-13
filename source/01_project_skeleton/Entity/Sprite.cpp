@@ -31,12 +31,19 @@ Sprite::~Sprite(){
     
 }
 
+Sprite * Sprite::create(){
+    Sprite * ret = new Sprite();
+    ret->init();
+    return ret;
+}
+
 bool Sprite::initTexture(){
     
     _texture = zdogl::Texture2D::loadFromFile("wooden-crate.jpg");
 
     
     _texture->genMipmap();
+    return true;
 }
 
 bool Sprite::initProgram(){
@@ -44,6 +51,7 @@ bool Sprite::initProgram(){
     shaders.push_back(zdogl::Shader::create("VertexShader.glsl", GL_VERTEX_SHADER));
     shaders.push_back(zdogl::Shader::create("FragmentShader.glsl", GL_FRAGMENT_SHADER));
     _program = new zdogl::Program(shaders);
+    return true;
 }
 
 
@@ -192,6 +200,8 @@ bool Sprite::initVao(){
                           (GLvoid *)(3 * sizeof(GLfloat)));
     
     _vao->unbind();
+    
+    return true;
     
 }
 
