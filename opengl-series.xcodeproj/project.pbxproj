@@ -132,6 +132,12 @@
 		F6477C0A1D20E4810049474C /* wooden-crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6477C091D20E4810049474C /* wooden-crate.jpg */; };
 		F6477C151D216DE20049474C /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6477C131D216DE20049474C /* InputManager.cpp */; };
 		F64DCAF41F652628004D4E51 /* TextureCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F64DCAF21F652628004D4E51 /* TextureCube.cpp */; };
+		F67E780E1F684090004B19C6 /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67E78081F684090004B19C6 /* back.jpg */; };
+		F67E780F1F684090004B19C6 /* bottom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67E78091F684090004B19C6 /* bottom.jpg */; };
+		F67E78101F684090004B19C6 /* front.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67E780A1F684090004B19C6 /* front.jpg */; };
+		F67E78111F684090004B19C6 /* left.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67E780B1F684090004B19C6 /* left.jpg */; };
+		F67E78121F684090004B19C6 /* right.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67E780C1F684090004B19C6 /* right.jpg */; };
+		F67E78131F684090004B19C6 /* top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67E780D1F684090004B19C6 /* top.jpg */; };
 		F6B074B41D1D10230089A2EA /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074B21D1D10230089A2EA /* Object.cpp */; };
 		F6B074B71D1D122B0089A2EA /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074B51D1D122B0089A2EA /* Program.cpp */; };
 		F6B074BB1D1D12EC0089A2EA /* Ref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074B91D1D12EC0089A2EA /* Ref.cpp */; };
@@ -272,6 +278,12 @@
 		F6477C141D216DE20049474C /* InputManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputManager.hpp; sourceTree = "<group>"; };
 		F64DCAF21F652628004D4E51 /* TextureCube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureCube.cpp; sourceTree = "<group>"; };
 		F64DCAF31F652628004D4E51 /* TextureCube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextureCube.hpp; sourceTree = "<group>"; };
+		F67E78081F684090004B19C6 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
+		F67E78091F684090004B19C6 /* bottom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bottom.jpg; sourceTree = "<group>"; };
+		F67E780A1F684090004B19C6 /* front.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = front.jpg; sourceTree = "<group>"; };
+		F67E780B1F684090004B19C6 /* left.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = left.jpg; sourceTree = "<group>"; };
+		F67E780C1F684090004B19C6 /* right.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = right.jpg; sourceTree = "<group>"; };
+		F67E780D1F684090004B19C6 /* top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = top.jpg; sourceTree = "<group>"; };
 		F6B074B21D1D10230089A2EA /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		F6B074B31D1D10230089A2EA /* Object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
 		F6B074B51D1D122B0089A2EA /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
@@ -460,6 +472,12 @@
 			isa = PBXGroup;
 			children = (
 				F6477C091D20E4810049474C /* wooden-crate.jpg */,
+				F67E78081F684090004B19C6 /* back.jpg */,
+				F67E78091F684090004B19C6 /* bottom.jpg */,
+				F67E780A1F684090004B19C6 /* front.jpg */,
+				F67E780B1F684090004B19C6 /* left.jpg */,
+				F67E780C1F684090004B19C6 /* right.jpg */,
+				F67E780D1F684090004B19C6 /* top.jpg */,
 				E2639AFE190D174200B6251A /* fragment-shader.txt */,
 				E2639AFF190D174200B6251A /* vertex-shader.txt */,
 				F6F914B11D2061F200FFA244 /* VertexShader.glsl */,
@@ -1010,7 +1028,7 @@
 		E2639943190D145C00B6251A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0830;
 			};
 			buildConfigurationList = E2639946190D145C00B6251A /* Build configuration list for PBXProject "opengl-series" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1042,10 +1060,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F67E78131F684090004B19C6 /* top.jpg in Resources */,
+				F67E78121F684090004B19C6 /* right.jpg in Resources */,
 				F6477C0A1D20E4810049474C /* wooden-crate.jpg in Resources */,
+				F67E78101F684090004B19C6 /* front.jpg in Resources */,
 				E2639B08190D174200B6251A /* vertex-shader.txt in Resources */,
 				E2639B00190D174200B6251A /* fragment-shader.txt in Resources */,
+				F67E78111F684090004B19C6 /* left.jpg in Resources */,
+				F67E780F1F684090004B19C6 /* bottom.jpg in Resources */,
 				F6F914B41D20623F00FFA244 /* FragmentShader.glsl in Resources */,
+				F67E780E1F684090004B19C6 /* back.jpg in Resources */,
 				F6F914B21D2061F200FFA244 /* VertexShader.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1260,12 +1284,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					GLM_FORCE_RADIANS,
 				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_PEDANTIC = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/source/common/thirdparty\"/**",
@@ -1280,11 +1322,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					GLM_FORCE_RADIANS,
 				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_PEDANTIC = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/source/common/thirdparty\"/**",

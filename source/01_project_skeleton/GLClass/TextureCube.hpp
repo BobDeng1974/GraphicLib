@@ -12,10 +12,12 @@
 #include <stdio.h>
 #include "Bitmap.hpp"
 #include "Object.hpp"
+#include "Macro.h"
 #include <string>
 #include <vector>
 
 namespace zdogl {
+    
     class TextureCube : public Object{
         
     public:
