@@ -54,6 +54,12 @@ bool Texture2D::init(const ze::Bitmap &bitmap ,
     return true;
 }
 
+bool Texture2D::init(const std::string &filePath , GLint minMagFiler , GLint wrapMode){
+    ze::Bitmap bitmap = ze::Bitmap::loadFromFile(filePath);
+    init(bitmap , minMagFiler , wrapMode);
+    return true;
+}
+
 Texture2D::Texture2D(const ze::Bitmap &bitmap ,
                      GLint minMagFiler /* = GL_LINEAR */ ,
                      GLint wrapMode /* = GL_CLAMP_TO_EDGE */){

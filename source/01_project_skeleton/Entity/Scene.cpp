@@ -129,6 +129,10 @@ bool Scene::initVao(){
 }
 
 bool Scene::initProgram(){
+    std::vector<zdogl::Shader> shaders;
+    shaders.push_back(zdogl::Shader::create("cubeVs.glsl", GL_VERTEX_SHADER));
+    shaders.push_back(zdogl::Shader::create("cubeFs.glsl", GL_FRAGMENT_SHADER));
+    _program.init(shaders);
     return true;
 }
 

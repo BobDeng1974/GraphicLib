@@ -44,9 +44,9 @@ namespace ze {
         
         GLfloat * _colorData;
         
-        zdogl::VertexArray * _vao;
+        zdogl::VertexArray  _vao;
         
-        zdogl::Texture2D * _texture;
+        zdogl::Texture2D  _texture;
         
     };
     

@@ -19,10 +19,10 @@
 using namespace ze;
 
 Sprite::Sprite():
-_vao(nullptr),
+//_vao(nullptr),
 _vertexData(nullptr),
 _colorData(nullptr),
-_texture(nullptr),
+//_texture(nullptr),
 _rotate(0){
     
 }
@@ -39,10 +39,10 @@ Sprite * Sprite::create(){
 
 bool Sprite::initTexture(){
     
-    _texture = zdogl::Texture2D::loadFromFile("wooden-crate.jpg");
-
+//    _texture = zdogl::Texture2D::loadFromFile("wooden-crate.jpg");
+    _texture.init("wooden-crate.jpg");
     
-    _texture->genMipmap();
+    _texture.genMipmap();
     return true;
 }
 
@@ -69,11 +69,11 @@ void Sprite::draw(float dt){
     //启用shader程序
     _program.use();
     
-    _vao->bind();
+    _vao.bind();
     
-    _texture->active(0);
+    _texture.active(0);
     
-    _texture->bind();
+    _texture.bind();
     
     if (_position.x < 0.1f) {
         _rotate += dt * 45;
@@ -100,9 +100,9 @@ void Sprite::draw(float dt){
     
     glDrawArrays(GL_TRIANGLES , 0 , 36);
     
-    _vao->unbind();
+    _vao.unbind();
     
-    _texture->unbind();
+    _texture.unbind();
     
     _program.stopUsing();
     
@@ -170,10 +170,10 @@ bool Sprite::initVao(){
     vbo.setBufferType(GL_ARRAY_BUFFER);
     vbo.inflateBuffer(size , vertexData , GL_STATIC_DRAW);
     
-    _vao = new zdogl::VertexArray();
-    _vao->addBuffer(vbo);
+//    _vao = *new zdogl::VertexArray();
+    _vao.addBuffer(vbo);
     
-    _vao->bind();
+    _vao.bind();
     
     glEnableVertexAttribArray(_program.getAttribIndex("vertex"));
     glVertexAttribPointer(_program.getAttribIndex("vertex"),
@@ -199,7 +199,7 @@ bool Sprite::initVao(){
                           8 * sizeof(GLfloat),
                           (GLvoid *)(3 * sizeof(GLfloat)));
     
-    _vao->unbind();
+    _vao.unbind();
     
     return true;
     

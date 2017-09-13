@@ -38,6 +38,10 @@ namespace zdogl {
                                         GLint minMagFiler = GL_LINEAR,
                                         GLint wrapMode = GL_CLAMP_TO_EDGE);
         
+        bool init(const std::string & filePath ,
+                  GLint minMagFiler = GL_LINEAR,
+                  GLint wrapMode = GL_CLAMP_TO_EDGE);
+        
         /**
          init a texture from a bitmap.
          
