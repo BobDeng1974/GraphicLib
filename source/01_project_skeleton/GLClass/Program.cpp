@@ -16,7 +16,10 @@ using namespace zdogl;
 Program::Program(const std::vector<Shader>& shaders){
     _className = "Program";
     init(shaders);
-    
+}
+
+Program::Program(){
+    _className = "Program";
 }
 
 bool Program::init(const std::vector<Shader> &shaders){

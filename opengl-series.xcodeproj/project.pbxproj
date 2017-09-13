@@ -1547,7 +1547,7 @@
 				E2639948190D145D00B6251A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E263997C190D148500B6251A /* Build configuration list for PBXNativeTarget "01_project_skeleton" */ = {
 			isa = XCConfigurationList;
@@ -1556,7 +1556,7 @@
 				E263997E190D148500B6251A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E26399AD190D149C00B6251A /* Build configuration list for PBXNativeTarget "02_textures" */ = {
 			isa = XCConfigurationList;
@@ -1565,7 +1565,7 @@
 				E26399AF190D149C00B6251A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E26399DE190D14B300B6251A /* Build configuration list for PBXNativeTarget "03_matrices" */ = {
 			isa = XCConfigurationList;
@@ -1574,7 +1574,7 @@
 				E26399E0190D14B300B6251A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E2639A0F190D14C100B6251A /* Build configuration list for PBXNativeTarget "04_camera" */ = {
 			isa = XCConfigurationList;
@@ -1583,7 +1583,7 @@
 				E2639A11190D14C100B6251A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E2639A40190D14D100B6251A /* Build configuration list for PBXNativeTarget "05_asset_instance" */ = {
 			isa = XCConfigurationList;
@@ -1592,7 +1592,7 @@
 				E2639A42190D14D100B6251A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E2639A71190D14E600B6251A /* Build configuration list for PBXNativeTarget "06_diffuse_lighting" */ = {
 			isa = XCConfigurationList;
@@ -1601,7 +1601,7 @@
 				E2639A73190D14E600B6251A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E2639AA2190D14F600B6251A /* Build configuration list for PBXNativeTarget "07_more_lighting" */ = {
 			isa = XCConfigurationList;
@@ -1610,7 +1610,7 @@
 				E2639AA4190D14F600B6251A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E2639AD3190D150700B6251A /* Build configuration list for PBXNativeTarget "08_even_more_lighting" */ = {
 			isa = XCConfigurationList;
@@ -1619,7 +1619,7 @@
 				E2639AD5190D150700B6251A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

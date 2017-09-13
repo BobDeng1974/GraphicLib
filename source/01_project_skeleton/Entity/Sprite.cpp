@@ -50,7 +50,7 @@ bool Sprite::initProgram(){
     std::vector<zdogl::Shader> shaders;
     shaders.push_back(zdogl::Shader::create("VertexShader.glsl", GL_VERTEX_SHADER));
     shaders.push_back(zdogl::Shader::create("FragmentShader.glsl", GL_FRAGMENT_SHADER));
-    _program = new zdogl::Program(shaders);
+    _program.init(shaders);
     return true;
 }
 
@@ -67,7 +67,7 @@ void Sprite::draw(float dt){
     }
     
     //启用shader程序
-    _program->use();
+    _program.use();
     
     _vao->bind();
     
@@ -85,18 +85,18 @@ void Sprite::draw(float dt){
     glm::mat4 model = glm::rotate(glm::mat4() , glm::radians(-_rotate), glm::vec3(0,1,0));
     model = glm::translate(model , _position);
     
-//    _program->setUniform("light.position", camera->getPosition());
-    _program->setUniform("light.position",  glm::vec3(0,0,5));
-    _program->setUniform("light.intensities", glm::vec3(1,1,1));
+    _program.setUniform("light.position", camera->getPosition());
+    _program.setUniform("light.position",  glm::vec3(0,0,5));
+    _program.setUniform("light.intensities", glm::vec3(1,1,1));
     
-    _program->setUniform("camera.position", camera->getPosition());
+    _program.setUniform("camera.position", camera->getPosition());
     
-    _program->setUniform("model", model);
+    _program.setUniform("model", model);
     
-    _program->setUniform("VxP", camera->getViewProjectionMat());
+    _program.setUniform("VxP", camera->getViewProjectionMat());
     
     
-    _program->setUniform("tex", 0);
+    _program.setUniform("tex", 0);
     
     glDrawArrays(GL_TRIANGLES , 0 , 36);
     
@@ -104,7 +104,7 @@ void Sprite::draw(float dt){
     
     _texture->unbind();
     
-    _program->stopUsing();
+    _program.stopUsing();
     
 }
 
@@ -175,24 +175,24 @@ bool Sprite::initVao(){
     
     _vao->bind();
     
-    glEnableVertexAttribArray(_program->getAttribIndex("vertex"));
-    glVertexAttribPointer(_program->getAttribIndex("vertex"),
+    glEnableVertexAttribArray(_program.getAttribIndex("vertex"));
+    glVertexAttribPointer(_program.getAttribIndex("vertex"),
                           3,
                           GL_FLOAT,
                           GL_FALSE,
                           8 * sizeof(GLfloat),
                           0);
     
-    glEnableVertexAttribArray(_program->getAttribIndex("normal"));
-    glVertexAttribPointer(_program->getAttribIndex("normal"),
+    glEnableVertexAttribArray(_program.getAttribIndex("normal"));
+    glVertexAttribPointer(_program.getAttribIndex("normal"),
                           3,
                           GL_FLOAT,
                           GL_FALSE,
                           8 * sizeof(GLfloat),
                           (GLvoid *)(5 * sizeof(GLfloat)));
     
-    glEnableVertexAttribArray(_program->getAttribIndex("vertTexCoor"));
-    glVertexAttribPointer(_program->getAttribIndex("vertTexCoor"),
+    glEnableVertexAttribArray(_program.getAttribIndex("vertTexCoor"));
+    glVertexAttribPointer(_program.getAttribIndex("vertTexCoor"),
                           2,
                           GL_FLOAT,
                           GL_FALSE,
