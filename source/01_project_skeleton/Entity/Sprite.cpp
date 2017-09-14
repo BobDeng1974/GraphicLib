@@ -170,7 +170,6 @@ bool Sprite::initVao(){
     vbo.setBufferType(GL_ARRAY_BUFFER);
     vbo.inflateBuffer(size , vertexData , GL_STATIC_DRAW);
     
-//    _vao = *new zdogl::VertexArray();
     _vao.addBuffer(vbo);
     
     _vao.bind();
