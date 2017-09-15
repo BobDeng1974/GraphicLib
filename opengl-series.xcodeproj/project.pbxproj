@@ -127,6 +127,8 @@
 		E29C2ADF19FCA23100A6FCD2 /* platform_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = E29C2AC819FCA1A100A6FCD2 /* platform_osx.mm */; };
 		E29C2AE019FCA23100A6FCD2 /* platform_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = E29C2AC819FCA1A100A6FCD2 /* platform_osx.mm */; };
 		E29C2AE119FCA23200A6FCD2 /* platform_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = E29C2AC819FCA1A100A6FCD2 /* platform_osx.mm */; };
+		F61BC78F1F6B78DF0011AF82 /* skyBoxFs.glsl in Resources */ = {isa = PBXBuildFile; fileRef = F61BC78D1F6B78DF0011AF82 /* skyBoxFs.glsl */; };
+		F61BC7901F6B78DF0011AF82 /* skyBoxVs.glsl in Resources */ = {isa = PBXBuildFile; fileRef = F61BC78E1F6B78DF0011AF82 /* skyBoxVs.glsl */; };
 		F61DF4E61D1F81B300E269A8 /* Director.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F61DF4E41D1F81B300E269A8 /* Director.cpp */; };
 		F61DF4E91D1F8FA200E269A8 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F61DF4E71D1F8FA200E269A8 /* Sprite.cpp */; };
 		F6477C0A1D20E4810049474C /* wooden-crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6477C091D20E4810049474C /* wooden-crate.jpg */; };
@@ -271,6 +273,8 @@
 		E29C2AC719FCA1A100A6FCD2 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = platforms/osx/libglfw3.a; sourceTree = "<group>"; };
 		E29C2AC819FCA1A100A6FCD2 /* platform_osx.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = platform_osx.mm; path = platforms/osx/platform_osx.mm; sourceTree = "<group>"; };
 		E29C2AC919FCA1C400A6FCD2 /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glew.c; path = source/common/thirdparty/glew/src/glew.c; sourceTree = "<group>"; };
+		F61BC78D1F6B78DF0011AF82 /* skyBoxFs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = skyBoxFs.glsl; sourceTree = "<group>"; };
+		F61BC78E1F6B78DF0011AF82 /* skyBoxVs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = skyBoxVs.glsl; sourceTree = "<group>"; };
 		F61DF4E41D1F81B300E269A8 /* Director.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Director.cpp; sourceTree = "<group>"; };
 		F61DF4E51D1F81B300E269A8 /* Director.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Director.hpp; sourceTree = "<group>"; };
 		F61DF4E71D1F8FA200E269A8 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
@@ -475,6 +479,8 @@
 		E2639AFD190D174200B6251A /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				F61BC78D1F6B78DF0011AF82 /* skyBoxFs.glsl */,
+				F61BC78E1F6B78DF0011AF82 /* skyBoxVs.glsl */,
 				F6477C091D20E4810049474C /* wooden-crate.jpg */,
 				F67E78081F684090004B19C6 /* back.jpg */,
 				F67E78091F684090004B19C6 /* bottom.jpg */,
@@ -1069,11 +1075,13 @@
 				F67E78131F684090004B19C6 /* top.jpg in Resources */,
 				F67E78121F684090004B19C6 /* right.jpg in Resources */,
 				F6477C0A1D20E4810049474C /* wooden-crate.jpg in Resources */,
+				F61BC7901F6B78DF0011AF82 /* skyBoxVs.glsl in Resources */,
 				F67E78161F68D8DF004B19C6 /* cubeFs.glsl in Resources */,
 				F67E78101F684090004B19C6 /* front.jpg in Resources */,
 				E2639B08190D174200B6251A /* vertex-shader.txt in Resources */,
 				E2639B00190D174200B6251A /* fragment-shader.txt in Resources */,
 				F67E78111F684090004B19C6 /* left.jpg in Resources */,
+				F61BC78F1F6B78DF0011AF82 /* skyBoxFs.glsl in Resources */,
 				F67E780F1F684090004B19C6 /* bottom.jpg in Resources */,
 				F6F914B41D20623F00FFA244 /* FragmentShader.glsl in Resources */,
 				F67E78171F68D8DF004B19C6 /* cubeVs.glsl in Resources */,

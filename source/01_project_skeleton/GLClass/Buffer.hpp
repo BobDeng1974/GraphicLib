@@ -33,8 +33,6 @@ namespace zdogl {
         
         Buffer(GLenum bufferType , GLuint size , void * p , GLenum usage = GL_STATIC_DRAW);
         
-        Buffer(GLenum bufferType , void * pVector , GLenum usage = GL_STATIC_DRAW);
-        
         inline GLenum getBufferType() {
             return _bufferType;
         }

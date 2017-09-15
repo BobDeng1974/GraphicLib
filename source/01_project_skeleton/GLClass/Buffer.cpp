@@ -36,48 +36,6 @@ Buffer::~Buffer(){
     unbind();
 }
 
-
-
-Buffer::Buffer(GLenum bufferType , void * pVector , GLenum usage /*= GL_STATIC_DRAW*/):
-_dataSize(0),
-_bufferType(bufferType),
-_elementType(0),
-_usage(usage){
-    
-    std::vector<GLfloat> * pf;
-    std::vector<GLuint> * pu;
-    GLfloat * pVertice;
-    GLuint * pIndices;
-    
-    switch (_bufferType) {
-            
-        case GL_ARRAY_BUFFER:
-            pf = static_cast<std::vector<GLfloat> *>(pVector);
-            GLfloat * vertice;
-            for (int i = 0 ; i < pf->size() ; i ++) {
-                vertice[i] = pf->at(i);
-            }
-            _dataSize = pf->size() * sizeof(GLfloat);
-            inflateBuffer(_dataSize , vertice , _usage);
-            break;
-            
-        case GL_ELEMENT_ARRAY_BUFFER:
-            pu = static_cast<std::vector<GLuint> *>(pVector);
-            GLuint * indices;
-            for (int i = 0 ; i < pu->size() ; i ++) {
-                indices[i] = pu->at(i);
-            }
-            _dataSize = pf->size() * sizeof(GLuint);
-            inflateBuffer(_dataSize , indices , _usage);
-            break;
-            
-        default:
-            break;
-    }
-
-    
-}
-
 Buffer::Buffer(GLenum bufferType , GLuint size , void * p , GLenum usage /*= GL_STATIC_DRAW*/):
 _dataSize(0),
 _bufferType(bufferType),
