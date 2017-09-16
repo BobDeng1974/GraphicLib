@@ -123,12 +123,16 @@ bool Scene::initVao(){
         1.0f, -1.0f,  1.0f
     };
     
+    
+    
     return true;
 }
 
-bool Scene::initVao(GLfloat *vertice){
+zdogl::VertexArray Scene::initVao(GLfloat *vertice , GLuint size){
+    zdogl::VertexArray ret;
     
-    return true;
+    
+    return ret;
 }
 
 bool Scene::initProgram(){

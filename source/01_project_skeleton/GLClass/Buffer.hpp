@@ -65,19 +65,6 @@ namespace zdogl {
         GLenum _bufferType;
         
         /**
-         type of array element
-         */
-        GLenum _elementType;
-
-        /**
-         store the array data
-         */
-        union{
-            GLuint * _indice;
-            GLfloat * _vertice;
-        }array;
-        
-        /**
          Specifies the expected usage pattern of the data store
          */
         GLenum _usage;

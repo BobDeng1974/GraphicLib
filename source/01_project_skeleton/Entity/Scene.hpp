@@ -27,7 +27,7 @@ namespace ze {
         
         virtual bool initVao();
         
-        virtual bool initVao(GLfloat * vertice);
+        virtual zdogl::VertexArray initVao(GLfloat * vertice , GLuint size);
         
         virtual bool initProgram();
         
