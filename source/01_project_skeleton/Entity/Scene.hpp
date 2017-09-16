@@ -27,9 +27,13 @@ namespace ze {
         
         virtual bool initVao();
         
+        virtual bool initVao(GLfloat * vertice);
+        
         virtual bool initProgram();
         
         virtual void draw(float dt);
+        
+        virtual void drawSelf(float dt);
         
         GLuint loadCubeMap(const std::vector<GLchar *> names);
         
@@ -41,7 +45,9 @@ namespace ze {
         
         GLfloat * _colorData;
         
-        zdogl::VertexArray _vao;
+        zdogl::VertexArray _cubeVao;
+        
+        zdogl::VertexArray _skyBoxVao;
         
     };
     

@@ -40,10 +40,6 @@ namespace ze {
         //角度
         GLfloat _rotate;
         
-        GLfloat * _vertexData;
-        
-        GLfloat * _colorData;
-        
         zdogl::VertexArray  _vao;
         
         zdogl::Texture2D  _texture;

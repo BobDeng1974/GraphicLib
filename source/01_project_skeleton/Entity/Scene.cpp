@@ -28,8 +28,6 @@ Scene * Scene::create(){
 GLuint Scene::loadCubeMap(const std::vector<GLchar *> names){
     _textureCube = zdogl::TextureCube(names);
     
-    
-    
     return _textureCube.getHandle();
 }
 
@@ -128,12 +126,21 @@ bool Scene::initVao(){
     return true;
 }
 
+bool Scene::initVao(GLfloat *vertice){
+    
+    return true;
+}
+
 bool Scene::initProgram(){
     std::vector<zdogl::Shader> shaders;
     shaders.push_back(zdogl::Shader::create("cubeVs.glsl", GL_VERTEX_SHADER));
     shaders.push_back(zdogl::Shader::create("cubeFs.glsl", GL_FRAGMENT_SHADER));
     _program.init(shaders);
     return true;
+}
+
+void Scene::drawSelf(float dt){
+    
 }
 
 bool Scene::init(){
@@ -152,8 +159,12 @@ bool Scene::init(){
 
 void Scene::draw(float dt){
     
+    drawSelf(dt);
+    
     for (int i = 0 ; i < _children.size() ; i ++) {
         _children.at(i)->draw(dt);
     }
     
 }
+
+

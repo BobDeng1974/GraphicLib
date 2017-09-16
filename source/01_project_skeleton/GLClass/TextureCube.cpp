@@ -12,6 +12,7 @@ using namespace zdogl;
 
 TextureCube * TextureCube::create(std::vector<GLchar *> names){
     TextureCube * ret = new TextureCube(names);
+    ret->init(names);
     return ret;
 }
 

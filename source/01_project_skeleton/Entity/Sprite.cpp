@@ -20,8 +20,8 @@ using namespace ze;
 
 Sprite::Sprite():
 //_vao(nullptr),
-_vertexData(nullptr),
-_colorData(nullptr),
+//_vertexData(nullptr),
+//_colorData(nullptr),
 //_texture(nullptr),
 _rotate(0){
     
@@ -162,9 +162,6 @@ bool Sprite::initVao(){
         1.0f, 1.0f, 1.0f,   0.0f, 1.0f,   1.0f, 0.0f, 0.0f
     };
     GLint size = sizeof(vertexData);
-    _vertexData = (GLfloat *)malloc(size);
-    memcpy(_vertexData , vertexData , size);
-    
     
     zdogl::Buffer vbo;
     vbo.setBufferType(GL_ARRAY_BUFFER);
