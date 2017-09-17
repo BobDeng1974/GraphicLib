@@ -26,6 +26,10 @@ bool TextureCube::init(std::vector<const GLchar *> names){
     
     for (int i = 0 ; i < names.size() ; ++ i) {
         ze::Bitmap bmp = ze::Bitmap::loadFromFile(names[i]);
+        auto data = bmp.getPixelBuffer();
+        if (data == nullptr) {
+            throw std::runtime_error(std::string("image resource no found ") + names[i]);
+        }
         glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i ,
                      0 ,
                      GL_RGB,
