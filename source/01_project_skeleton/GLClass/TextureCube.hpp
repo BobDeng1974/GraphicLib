@@ -21,15 +21,15 @@ namespace zdogl {
     class TextureCube : public Object{
         
     public:
-        TextureCube(std::vector<GLchar *> names);
+        TextureCube(std::vector<const GLchar *> names);
         
         ~TextureCube();
         
         TextureCube();
         
-        static TextureCube * create(std::vector<GLchar *> names);
+        static TextureCube * create(std::vector<const GLchar *> names);
         
-        virtual bool init(std::vector<GLchar *> names);
+        virtual bool init(std::vector<const GLchar *> names);
         
         inline GLvoid active(GLuint index){
             glActiveTexture(GL_TEXTURE0 + index);

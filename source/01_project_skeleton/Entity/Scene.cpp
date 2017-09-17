@@ -8,6 +8,7 @@
 
 #include "Scene.hpp"
 #include "Sprite.hpp"
+#include "Director.hpp"
 
 using namespace ze;
 
@@ -25,59 +26,21 @@ Scene * Scene::create(){
     return ret;
 }
 
-GLuint Scene::loadCubeMap(const std::vector<GLchar *> names){
+GLuint Scene::loadCubeMap(const std::vector<const GLchar *> &names){
     _textureCube = zdogl::TextureCube(names);
     
     return _textureCube.getHandle();
 }
 
-bool Scene::initVao(){
-    
-    GLfloat cubeVertices[] = {
-        // Positions          // Texture Coords
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-        0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-        
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        
-        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
-    };
-    
+void Scene::initVao(zdogl::VertexArray &vao , GLfloat *vertice , GLuint size){
+    zdogl::Buffer buffer;
+    buffer.inflateBuffer(size , vertice);
+    vao.addBuffer(buffer);
+}
+
+
+
+void Scene::initSkyBox(){
     GLfloat skyboxVertices[] = {
         // Positions
         -1.0f,  1.0f, -1.0f,
@@ -123,42 +86,87 @@ bool Scene::initVao(){
         1.0f, -1.0f,  1.0f
     };
     
-    
-    
-    return true;
+    initVao(_skyBoxVao , skyboxVertices , sizeof(skyboxVertices));
+    initProgram(_skyBoxProgram , "skyBoxVs.glsl", "skyBoxFs.glsl");
+    _skyBoxVao.setEnabled(true , _skyBoxProgram.getAttribIndex("aPos"));
+    _skyBoxVao.parseData(_skyBoxProgram.getAttribIndex("aPos"),
+                         3,
+                         GL_FLOAT,
+                         GL_FALSE,
+                         3 * sizeof(GLfloat),
+                         (GLvoid *)0);
+    _skyBoxVao.unbind();
 }
 
-zdogl::VertexArray Scene::initVao(GLfloat *vertice , GLuint size){
-    zdogl::VertexArray ret;
-    
-    
-    return ret;
-}
-
-bool Scene::initProgram(){
+bool Scene::initProgram(zdogl::Program &program , const std::string &vs, const std::string &fs){
     std::vector<zdogl::Shader> shaders;
-    shaders.push_back(zdogl::Shader::create("cubeVs.glsl", GL_VERTEX_SHADER));
-    shaders.push_back(zdogl::Shader::create("cubeFs.glsl", GL_FRAGMENT_SHADER));
-    _program.init(shaders);
+    shaders.push_back(zdogl::Shader::create(vs, GL_VERTEX_SHADER));
+    shaders.push_back(zdogl::Shader::create(fs, GL_FRAGMENT_SHADER));
+    program.init(shaders);
     return true;
 }
 
 void Scene::drawSelf(float dt){
+    Camera * camera = ze::Director::getInstance()->getCamera();
+    
+    glm::mat4 view = glm::mat4(glm::mat3(camera->getViewMat()));
+    glm::mat4 projection = camera->getProjectionMat();
+    glDepthMask(GL_FALSE);
+    
+    
+    _skyBoxProgram.use();
+    
+    _skyBoxVao.bind();
+    
+    _textureCube.active(0);
+    
+    _skyBoxProgram.setUniform("view", view);
+    
+    _skyBoxProgram.setUniform("projection", projection);
+    
+    _textureCube.bind();
+    
+    _skyBoxProgram.setUniform("skybox", 0);
+    
+    _skyBoxVao.drawArray(0 , 36);
+    
+    _skyBoxVao.unbind();
+    
+    _textureCube.unbind();
+    
+    glDepthMask(GL_TRUE);
+    
+    _skyBoxProgram.stopUsing();
+    
     
 }
 
 bool Scene::init(){
     
-    Sprite * sprite = Sprite::create();
+    initLogic();
+    
+    std::vector<const GLchar*> faces = {"right.jpg",
+                                        "left.jpg",
+                                        "top.jpg",
+                                        "bottom.jpg",
+                                        "back.jpg",
+                                        "front.jpg"};
+    
+    loadCubeMap(faces);
+    
+    initSkyBox();
+    
+    return true;
+}
 
+void Scene::initLogic(){
+    Sprite * sprite = Sprite::create();
+    
     sprite->setPosition(glm::vec3(5 , 0 , 0));
     addChild(sprite);
     
     sprite = Sprite::create();
-    
     addChild(sprite);
-    
-    return true;
 }
 
 void Scene::draw(float dt){

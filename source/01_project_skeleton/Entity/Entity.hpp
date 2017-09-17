@@ -82,7 +82,7 @@ namespace ze {
         
         std::vector<Entity *> _children;
         
-        zdogl::Program _program;
+//        zdogl::Program _program;
     };
     
 }

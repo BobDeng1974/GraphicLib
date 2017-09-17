@@ -12,6 +12,7 @@
 #include "Entity.hpp"
 #include "TextureCube.hpp"
 #include "VertexArray.hpp"
+#include <string>
 
 namespace ze {
     
@@ -25,17 +26,19 @@ namespace ze {
         
         virtual bool init();
         
-        virtual bool initVao();
+        void initLogic();
         
-        virtual zdogl::VertexArray initVao(GLfloat * vertice , GLuint size);
+        void initSkyBox();
         
-        virtual bool initProgram();
+        virtual void initVao(zdogl::VertexArray &vao , GLfloat * vertice , GLuint size);
+        
+        virtual bool initProgram(zdogl::Program &program , const std::string &vs , const std::string &fs);
         
         virtual void draw(float dt);
         
         virtual void drawSelf(float dt);
         
-        GLuint loadCubeMap(const std::vector<GLchar *> names);
+        GLuint loadCubeMap(const std::vector<const GLchar *> &names);
         
         
     protected:
@@ -45,9 +48,9 @@ namespace ze {
         
         GLfloat * _colorData;
         
-        zdogl::VertexArray _cubeVao;
-        
         zdogl::VertexArray _skyBoxVao;
+        
+        zdogl::Program _skyBoxProgram;
         
     };
     

@@ -44,6 +44,8 @@ namespace ze {
         
         zdogl::Texture2D  _texture;
         
+        zdogl::Program _program;
+        
     };
     
 }

@@ -24,5 +24,5 @@ std::string Object::toString(){
 }
 
 bool Object::init(){
-    
+    return true;
 }

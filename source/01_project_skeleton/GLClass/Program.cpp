@@ -62,6 +62,7 @@ bool Program::init(const std::vector<Shader> &shaders){
         _handle = 0;
         throw std::runtime_error(msg);
     }
+    return true;
 }
 
 Program::~Program() {
@@ -105,8 +106,6 @@ GLint Program::getUniformIndex(const GLchar* uniformName) const {
     
     return uniform;
 }
-
-
 
 ATTRIB_N_UNIFORM_SETTERS(GLfloat, , f);
 ATTRIB_N_UNIFORM_SETTERS(GLdouble, , d);

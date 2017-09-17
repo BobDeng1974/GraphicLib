@@ -19,10 +19,6 @@
 using namespace ze;
 
 Sprite::Sprite():
-//_vao(nullptr),
-//_vertexData(nullptr),
-//_colorData(nullptr),
-//_texture(nullptr),
 _rotate(0){
     
 }
@@ -39,7 +35,7 @@ Sprite * Sprite::create(){
 
 bool Sprite::initTexture(){
     
-//    _texture = zdogl::Texture2D::loadFromFile("wooden-crate.jpg");
+
     _texture.init("wooden-crate.jpg");
     
     _texture.genMipmap();
@@ -95,10 +91,9 @@ void Sprite::draw(float dt){
     
     _program.setUniform("VxP", camera->getViewProjectionMat());
     
-    
     _program.setUniform("tex", 0);
     
-    glDrawArrays(GL_TRIANGLES , 0 , 36);
+    _vao.drawArray(0 , 36);
     
     _vao.unbind();
     
@@ -171,24 +166,24 @@ bool Sprite::initVao(){
     
     _vao.bind();
     
-    glEnableVertexAttribArray(_program.getAttribIndex("vertex"));
-    glVertexAttribPointer(_program.getAttribIndex("vertex"),
+    _vao.setEnabled(true , _program.getAttribIndex("vertex"));
+    _vao.parseData(_program.getAttribIndex("vertex"),
                           3,
                           GL_FLOAT,
                           GL_FALSE,
                           8 * sizeof(GLfloat),
                           0);
     
-    glEnableVertexAttribArray(_program.getAttribIndex("normal"));
-    glVertexAttribPointer(_program.getAttribIndex("normal"),
+    _vao.setEnabled(true , _program.getAttribIndex("normal"));
+    _vao.parseData(_program.getAttribIndex("normal"),
                           3,
                           GL_FLOAT,
                           GL_FALSE,
                           8 * sizeof(GLfloat),
                           (GLvoid *)(5 * sizeof(GLfloat)));
     
-    glEnableVertexAttribArray(_program.getAttribIndex("vertTexCoor"));
-    glVertexAttribPointer(_program.getAttribIndex("vertTexCoor"),
+    _vao.setEnabled(true , _program.getAttribIndex("vertTexCoor"));
+    _vao.parseData(_program.getAttribIndex("vertTexCoor"),
                           2,
                           GL_FLOAT,
                           GL_FALSE,

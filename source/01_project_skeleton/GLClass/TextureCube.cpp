@@ -10,7 +10,7 @@
 
 using namespace zdogl;
 
-TextureCube * TextureCube::create(std::vector<GLchar *> names){
+TextureCube * TextureCube::create(std::vector<const GLchar *> names){
     TextureCube * ret = new TextureCube(names);
     ret->init(names);
     return ret;
@@ -20,7 +20,7 @@ TextureCube::TextureCube(){
     
 }
 
-bool TextureCube::init(std::vector<GLchar *> names){
+bool TextureCube::init(std::vector<const GLchar *> names){
     glGenTextures(1 , &_handle);
     active(0);
     
@@ -46,7 +46,7 @@ bool TextureCube::init(std::vector<GLchar *> names){
     return true;
 }
 
-TextureCube::TextureCube(std::vector<GLchar *>names){
+TextureCube::TextureCube(std::vector<const GLchar *>names){
     init(names);
 }
 
