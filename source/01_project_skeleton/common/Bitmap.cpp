@@ -183,7 +183,7 @@ Bitmap Bitmap::loadFromFile(std::string filePath) {
 }
 
 Bitmap::Bitmap(const Bitmap& other) :
-_pixels(NULL)
+_pixels(nullptr)
 {
     init(other._width, other._height, other._format, other._pixels);
 }
