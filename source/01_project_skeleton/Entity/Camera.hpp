@@ -64,11 +64,29 @@ namespace ze{
             _normalizeAngle();
         }
         
-        SYNTHESIZE(float , _nearPlane , NearPlane)
+        inline float getNearPlane(){
+            return _nearPlane;
+        }
         
-        SYNTHESIZE(float , _farPlane , FarPlane)
+        inline void setNearPlane(float val){
+            _nearPlane = val;
+        }
         
-        SYNTHESIZE(float , _moveVelo , MoveVelo)
+        inline float getFarPlane(){
+            return _farPlane;
+        }
+        
+        inline void setFarPlane(float val){
+            _farPlane = val;
+        }
+        
+        inline void setMoveVelo(float val){
+            _moveVelo = val;
+        }
+        
+        inline float getMoveVelo(){
+            return _moveVelo;
+        }
 
         /** 
          A unit vector representing the direction the camera is facing in world coordinate system
@@ -140,6 +158,12 @@ namespace ze{
         float _horizontalAngle;
         
         float _maxPitch;
+        
+        float _nearPlane;
+        
+        float _farPlane;
+        
+        float _moveVelo;
         
         
         // base of angle (horizontal)
