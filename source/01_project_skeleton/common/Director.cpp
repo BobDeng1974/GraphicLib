@@ -29,11 +29,11 @@ Director * Director::getInstance(){
 
 bool Director::init(){
     
-    _curScene = new Scene();
+    _curScene = Scene::create();
     
     _curScene->init();
     
-    _camera = new Camera();
+    _camera = Camera::create();
     
     glm::vec3 position(0,0,5);
     

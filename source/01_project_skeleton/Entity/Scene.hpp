@@ -10,8 +10,7 @@
 #define Scene_hpp
 
 #include "Entity.hpp"
-#include "TextureCube.hpp"
-#include "VertexArray.hpp"
+#include "SkyBox.hpp"
 #include <string>
 
 namespace ze {
@@ -24,29 +23,19 @@ namespace ze {
         
         static Scene * create();
         
+        static Scene * create(const std::vector<const GLchar *> &faces);
+        
         virtual bool init();
+        
+        virtual bool init(const std::vector<const GLchar *> &faces);
         
         void initLogic();
         
-        void initSkyBox();
-        
-        virtual void initVao(zdogl::VertexArray &vao , GLfloat * vertice , GLuint size);
-        
-        virtual bool initProgram(zdogl::Program &program , const std::string &vs , const std::string &fs);
-        
         virtual void draw(float dt);
         
-        virtual void drawSelf(float dt);
-        
-        GLuint loadCubeMap(const std::vector<const GLchar *> &names);
-        
-        
     protected:
-        zdogl::TextureCube _textureCube;
         
-        zdogl::VertexArray _skyBoxVao;
-        
-        zdogl::Program _skyBoxProgram;
+        SkyBox * _skyBox;
         
     };
     

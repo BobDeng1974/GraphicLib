@@ -31,6 +31,12 @@ Camera::~Camera(){
     
 }
 
+Camera * Camera::create(){
+    Camera * ret = new Camera();
+    ret->init();
+    return ret;
+}
+
 glm::mat4 Camera::getCurDirectionMat() const{
     glm::mat4 ret;
     ret = glm::rotate(ret , glm::radians(_verticalAngle) , glm::vec3(1,0,0));
