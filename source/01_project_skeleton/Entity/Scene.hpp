@@ -44,10 +44,6 @@ namespace ze {
     protected:
         zdogl::TextureCube _textureCube;
         
-        GLfloat * _vertexData;
-        
-        GLfloat * _colorData;
-        
         zdogl::VertexArray _skyBoxVao;
         
         zdogl::Program _skyBoxProgram;

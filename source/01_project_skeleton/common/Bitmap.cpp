@@ -164,7 +164,7 @@ Bitmap::Bitmap(unsigned width,
                unsigned height,
                Format format,
                const unsigned char* pixels) :
-_pixels(NULL){
+_pixels(nullptr){
     init(width, height, format, pixels);
 }
 

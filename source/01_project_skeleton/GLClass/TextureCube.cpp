@@ -23,7 +23,7 @@ TextureCube::TextureCube(){
 bool TextureCube::init(std::vector<const GLchar *> names){
     glGenTextures(1 , &_handle);
     active(0);
-    
+    bind();
     for (int i = 0 ; i < names.size() ; ++ i) {
         ze::Bitmap bmp = ze::Bitmap::loadFromFile(names[i]);
         auto data = bmp.getPixelBuffer();
@@ -46,6 +46,7 @@ bool TextureCube::init(std::vector<const GLchar *> names){
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+    unbind();
     
     return true;
 }

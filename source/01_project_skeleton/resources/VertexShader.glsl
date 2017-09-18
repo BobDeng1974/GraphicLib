@@ -16,6 +16,7 @@ in vec3 normal;
 out vec2 fragTexCoor;
 out vec3 Normal;
 out vec3 fragPos;
+out vec3 v_out;
 
 uniform mat4 model;
 uniform mat4 VxP;
@@ -29,10 +30,13 @@ void main(){
     
     fragPos = vec3(model * vec4(vertex , 1.0));
     
+    v_out = vertex;
+    
     fragTexCoor = vertTexCoor;
     
     gl_Position = VxP * model * vec4(vertex , 1.0);
-    
+//    gl_Position = vec4(vertex , 1.0);
+
 }
 
 

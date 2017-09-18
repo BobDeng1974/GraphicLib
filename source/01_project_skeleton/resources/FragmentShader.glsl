@@ -27,6 +27,7 @@ uniform struct Camera{
 in vec3 fragPos;
 in vec2 fragTexCoor;
 in vec3 Normal;
+in vec3 v_out;
 
 out vec4 finalColor;
 
@@ -35,11 +36,6 @@ void main(){
     float ambient = 0.2f;
     
     vec4 objectColor = texture(tex , fragTexCoor);
-    
-//    vec4 objectColor = vec4(vec3(1.0 - texture(tex , fragTexCoor)) , 1.0);
-
-//    float v = 0.299 * objectColor.r + 0.587 * objectColor.g + 0.114 * objectColor.b;
-    
     
     vec3 lightDir = normalize(light.position - fragPos);
     
@@ -59,7 +55,15 @@ void main(){
     
     vec3 specular = spec * light.intensities * specularFactor;
     
-    finalColor = vec4(objectColor.rgb * (ambient + specular ) , objectColor.a);
+//    finalColor = vec4(objectColor.rgb * (ambient + specular ) , objectColor.a);
+    
+//    if (v_out.x > 0) {
+//        finalColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+//    }else{
+        finalColor = vec4(objectColor.rgb * (ambient + specular ) , objectColor.a);
+//    }
+    
+//    finalColor = vec4(v_out.xyz , 1.0);
     
 }
 

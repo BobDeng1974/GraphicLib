@@ -9,6 +9,7 @@
 #include "Scene.hpp"
 #include "Sprite.hpp"
 #include "Director.hpp"
+#include "SkyBox.hpp"
 
 using namespace ze;
 
@@ -88,6 +89,7 @@ void Scene::initSkyBox(){
     
     initVao(_skyBoxVao , skyboxVertices , sizeof(skyboxVertices));
     initProgram(_skyBoxProgram , "skyBoxVs.glsl", "skyBoxFs.glsl");
+    _skyBoxVao.bind();
     _skyBoxVao.setEnabled(true , _skyBoxProgram.getAttribIndex("aPos"));
     _skyBoxVao.parseData(_skyBoxProgram.getAttribIndex("aPos"),
                          3,
@@ -110,33 +112,42 @@ void Scene::drawSelf(float dt){
     Camera * camera = ze::Director::getInstance()->getCamera();
     
     glm::mat4 view = glm::mat4(glm::mat3(camera->getViewMat()));
-    glm::mat4 projection = camera->getProjectionMat();
-    glDepthMask(GL_FALSE);
     
+    glDepthFunc(GL_LEQUAL);
     
     _skyBoxProgram.use();
-    
-    _skyBoxVao.bind();
-    
-    _textureCube.active(0);
-    
     _skyBoxProgram.setUniform("view", view);
     
-    _skyBoxProgram.setUniform("projection", projection);
-    
+    _skyBoxProgram.setUniform("projection" , camera->getProjectionMat());
+    _skyBoxVao.bind();
     _textureCube.bind();
-    
-    _skyBoxProgram.setUniform("skybox", 0);
     
     _skyBoxVao.drawArray(0 , 36);
     
     _skyBoxVao.unbind();
     
-    _textureCube.unbind();
+    glDepthFunc(GL_LESS);
     
-    glDepthMask(GL_TRUE);
     
-    _skyBoxProgram.stopUsing();
+//    _skyBoxProgram.use();
+//    
+//    _skyBoxProgram.setUniform("view", view);
+//    
+//    _skyBoxProgram.setUniform("projection", projection);
+//    
+//    _skyBoxVao.bind();
+//    
+//    _textureCube.bind();
+//    
+//    _skyBoxVao.drawArray(0 , 36);
+//    
+//    _skyBoxVao.unbind();
+//    
+//    _textureCube.unbind();
+//    
+//    glDepthMask(GL_TRUE);
+//    
+//    _skyBoxProgram.stopUsing();
     
     
 }
@@ -167,11 +178,22 @@ void Scene::initLogic(){
     
     sprite = Sprite::create();
     addChild(sprite);
+    
+    std::vector<const GLchar*> faces = {"right.jpg",
+                                        "left.jpg",
+                                        "top.jpg",
+                                        "bottom.jpg",
+                                        "back.jpg",
+                                        "front.jpg"};
+    
+    SkyBox * skyBox = SkyBox::create(faces);
+    
+    addChild(skyBox);
 }
 
 void Scene::draw(float dt){
     
-    drawSelf(dt);
+//    drawSelf(dt);
     
     for (int i = 0 ; i < _children.size() ; i ++) {
         _children.at(i)->draw(dt);

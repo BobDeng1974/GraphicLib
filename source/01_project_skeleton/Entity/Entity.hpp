@@ -14,6 +14,7 @@
 #include "Macro.h"
 #include <vector>
 #include <string>
+#include "VertexArray.hpp"
 #include "Program.hpp"
 
 namespace ze {
@@ -82,7 +83,9 @@ namespace ze {
         
         std::vector<Entity *> _children;
         
-//        zdogl::Program _program;
+        zdogl::VertexArray _vao;
+        
+        zdogl::Program _program;
     };
     
 }

@@ -135,6 +135,7 @@
 		F61BC79F1F6D055B0011AF82 /* left.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F61BC7991F6D055B0011AF82 /* left.jpg */; };
 		F61BC7A01F6D055B0011AF82 /* right.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F61BC79A1F6D055B0011AF82 /* right.jpg */; };
 		F61BC7A11F6D055B0011AF82 /* top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F61BC79B1F6D055B0011AF82 /* top.jpg */; };
+		F61BC7A41F6E312F0011AF82 /* SkyBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F61BC7A21F6E312F0011AF82 /* SkyBox.cpp */; };
 		F61DF4E61D1F81B300E269A8 /* Director.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F61DF4E41D1F81B300E269A8 /* Director.cpp */; };
 		F61DF4E91D1F8FA200E269A8 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F61DF4E71D1F8FA200E269A8 /* Sprite.cpp */; };
 		F6477C0A1D20E4810049474C /* wooden-crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6477C091D20E4810049474C /* wooden-crate.jpg */; };
@@ -287,6 +288,8 @@
 		F61BC7991F6D055B0011AF82 /* left.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = left.jpg; sourceTree = "<group>"; };
 		F61BC79A1F6D055B0011AF82 /* right.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = right.jpg; sourceTree = "<group>"; };
 		F61BC79B1F6D055B0011AF82 /* top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = top.jpg; sourceTree = "<group>"; };
+		F61BC7A21F6E312F0011AF82 /* SkyBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkyBox.cpp; sourceTree = "<group>"; };
+		F61BC7A31F6E312F0011AF82 /* SkyBox.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SkyBox.hpp; sourceTree = "<group>"; };
 		F61DF4E41D1F81B300E269A8 /* Director.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Director.cpp; sourceTree = "<group>"; };
 		F61DF4E51D1F81B300E269A8 /* Director.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Director.hpp; sourceTree = "<group>"; };
 		F61DF4E71D1F8FA200E269A8 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
@@ -876,6 +879,8 @@
 				F6B074C31D1D17B60089A2EA /* Scene.hpp */,
 				F61DF4E71D1F8FA200E269A8 /* Sprite.cpp */,
 				F61DF4E81D1F8FA200E269A8 /* Sprite.hpp */,
+				F61BC7A21F6E312F0011AF82 /* SkyBox.cpp */,
+				F61BC7A31F6E312F0011AF82 /* SkyBox.hpp */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1213,6 +1218,7 @@
 				F6B074DA1D1ED8670089A2EA /* Bitmap.cpp in Sources */,
 				F6B074C41D1D17B60089A2EA /* Scene.cpp in Sources */,
 				F6B074BB1D1D12EC0089A2EA /* Ref.cpp in Sources */,
+				F61BC7A41F6E312F0011AF82 /* SkyBox.cpp in Sources */,
 				F6B074D41D1EA4B20089A2EA /* Buffer.cpp in Sources */,
 				F61DF4E61D1F81B300E269A8 /* Director.cpp in Sources */,
 				E2639AE3190D156500B6251A /* main.cpp in Sources */,
