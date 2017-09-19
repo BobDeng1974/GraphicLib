@@ -37,8 +37,7 @@ SkyBox * SkyBox::create(const std::vector<const GLchar *> &faces){
 }
 
 void SkyBox::initVao(){
-    GLfloat vexBuf[] =
-    {
+    GLfloat vexBuf[] = {
         1, -1, 1,
         1, 1, 1,
         -1, 1, 1,
@@ -118,13 +117,11 @@ void SkyBox::draw(float dt){
     Camera * camera = ze::Director::getInstance()->getCamera();
     
     glDepthFunc(GL_LEQUAL);
-    glm::mat4 view = glm::mat4(glm::mat3(camera->getViewMat()));
     
     _begin();
-    _program.setUniform("view", view);
+    _program.setUniform("view", camera->getCurDirectionMat());
     _program.setUniform("projection" , camera->getProjectionMat());
     _program.setUniform("skybox" , 0);
-    
     
     _textureCube.active(0);
     
