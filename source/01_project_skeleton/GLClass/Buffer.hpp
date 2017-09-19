@@ -20,9 +20,11 @@ namespace zdogl {
         /**
          constructor
          */
-        Buffer(GLenum bufferType , GLenum usage /* = GL_STATIC_DRAW */);
+        Buffer(GLenum bufferType , GLenum usage);
         
-        Buffer(GLenum usage = GL_STATIC_DRAW);
+        Buffer(GLenum bufferType);
+        
+        Buffer();
         
         ~Buffer();
         
@@ -45,6 +47,8 @@ namespace zdogl {
          fill buffer with array element
          */
         void inflateBuffer(GLuint size , GLvoid * p , GLenum usage = GL_STATIC_DRAW);
+        
+        void inflateBuffer();
         
         /**
          call the glBindBuffer

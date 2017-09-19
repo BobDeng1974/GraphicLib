@@ -41,16 +41,10 @@ GLvoid VertexArray::parseData(GLuint index, GLint size, GLenum type, GLboolean n
 
 GLvoid VertexArray::unbind(){
     glBindVertexArray(0);
-    for (int i = 0 ; i < _buffers.size() ; i ++) {
-        _buffers.at(i).unbind();
-    }
 }
 
 GLvoid VertexArray::bind(){
     glBindVertexArray(_handle);
-    for (int i = 0 ; i < _buffers.size() ; i ++) {
-        _buffers.at(i).bind();
-    }
 }
 
 GLvoid VertexArray::addBuffer(zdogl::Buffer buffer){

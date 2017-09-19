@@ -19,9 +19,16 @@ _usage(usage){
     glGenBuffers(1 , &_handle);
 }
 
-Buffer::Buffer(GLenum usage /* = GL_STATIC_DRAW */):
+Buffer::Buffer():
 _dataSize(0),
 _bufferType(GL_ARRAY_BUFFER),
+_usage(GL_STATIC_DRAW){
+    glGenBuffers(1 , &_handle);
+}
+
+Buffer::Buffer(GLenum bufferType):
+_dataSize(0),
+_bufferType(bufferType),
 _usage(GL_STATIC_DRAW){
     glGenBuffers(1 , &_handle);
 }
@@ -38,6 +45,7 @@ Buffer::Buffer(GLenum bufferType , GLuint size , void * p , GLenum usage /*= GL_
 _dataSize(0),
 _bufferType(bufferType),
 _usage(usage){
+    bind();
     inflateBuffer(size, p , _usage);
 }
 

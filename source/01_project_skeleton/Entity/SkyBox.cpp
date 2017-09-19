@@ -37,55 +37,35 @@ SkyBox * SkyBox::create(const std::vector<const GLchar *> &faces){
 }
 
 void SkyBox::initVao(){
-    GLfloat skyboxVertices[] = {
-        // Positions
-        -1.0f,  1.0f, -1.0f,
-        -1.0f, -1.0f, -1.0f,
-        1.0f, -1.0f, -1.0f,
-        1.0f, -1.0f, -1.0f,
-        1.0f,  1.0f, -1.0f,
-        -1.0f,  1.0f, -1.0f,
-        
-        -1.0f, -1.0f,  1.0f,
-        -1.0f, -1.0f, -1.0f,
-        -1.0f,  1.0f, -1.0f,
-        -1.0f,  1.0f, -1.0f,
-        -1.0f,  1.0f,  1.0f,
-        -1.0f, -1.0f,  1.0f,
-        
-        1.0f, -1.0f, -1.0f,
-        1.0f, -1.0f,  1.0f,
-        1.0f,  1.0f,  1.0f,
-        1.0f,  1.0f,  1.0f,
-        1.0f,  1.0f, -1.0f,
-        1.0f, -1.0f, -1.0f,
-        
-        -1.0f, -1.0f,  1.0f,
-        -1.0f,  1.0f,  1.0f,
-        1.0f,  1.0f,  1.0f,
-        1.0f,  1.0f,  1.0f,
-        1.0f, -1.0f,  1.0f,
-        -1.0f, -1.0f,  1.0f,
-        
-        -1.0f,  1.0f, -1.0f,
-        1.0f,  1.0f, -1.0f,
-        1.0f,  1.0f,  1.0f,
-        1.0f,  1.0f,  1.0f,
-        -1.0f,  1.0f,  1.0f,
-        -1.0f,  1.0f, -1.0f,
-        
-        -1.0f, -1.0f, -1.0f,
-        -1.0f, -1.0f,  1.0f,
-        1.0f, -1.0f, -1.0f,
-        1.0f, -1.0f, -1.0f,
-        -1.0f, -1.0f,  1.0f,
-        1.0f, -1.0f,  1.0f
+    GLfloat vexBuf[] =
+    {
+        1, -1, 1,
+        1, 1, 1,
+        -1, 1, 1,
+        -1, -1, 1,
+        1, -1, -1,
+        1, 1, -1,
+        -1, 1, -1,
+        -1, -1, -1
     };
-    zdogl::Buffer buffer;
-    buffer.setBufferType(GL_ARRAY_BUFFER);
-    buffer.inflateBuffer(sizeof(skyboxVertices) , skyboxVertices);
-    _vao.addBuffer(buffer);
+    
+    GLubyte idxBuf[] = {
+        2, 1, 0, 3, 2, 0, // front
+        1, 5, 4, 1, 4, 0, // right
+        4, 5, 6, 4, 6, 7, // back
+        7, 6, 2, 7, 2, 3, // left
+        2, 6, 5, 2, 5, 1, // up
+        3, 0, 4, 3, 4, 7  // down
+    };
+    
+    
     _vao.bind();
+    zdogl::Buffer vbo(GL_ARRAY_BUFFER);
+    vbo.inflateBuffer(sizeof(vexBuf) , vexBuf);
+    
+    zdogl::Buffer ebo(GL_ELEMENT_ARRAY_BUFFER);
+    ebo.inflateBuffer(sizeof(idxBuf), idxBuf);
+    
     _vao.setEnabled(true , _program.getAttribIndex("aPos"));
     _vao.parseData(_program.getAttribIndex("aPos"),
                    3,
@@ -93,6 +73,9 @@ void SkyBox::initVao(){
                    GL_FALSE,
                    3 * sizeof(GLfloat),
                    (GLvoid *)0);
+    
+    ebo.bind();
+    vbo.bind();
     _vao.unbind();
 }
 
@@ -116,20 +99,26 @@ bool SkyBox::init(const std::vector<const GLchar *> &faces){
 }
 
 void SkyBox::draw(float dt){
-    glDepthFunc(GL_LEQUAL);
     
     Camera * camera = ze::Director::getInstance()->getCamera();
-    _program.use();
-    glm::mat4 view = glm::mat4(glm::mat3(camera->getViewMat()));
-    _program.setUniform("view", view);
     
+    glDepthFunc(GL_LEQUAL);
+    glm::mat4 view = glm::mat4(glm::mat3(camera->getViewMat()));
+    
+    _program.use();
+    _program.setUniform("view", view);
     _program.setUniform("projection" , camera->getProjectionMat());
     _vao.bind();
+    
     _textureCube.bind();
     
-    _vao.drawArray(0 , 36);
+    _vao.drawElements(36, GL_UNSIGNED_BYTE, nullptr);
+    
+    _textureCube.unbind();
     
     _vao.unbind();
+    
+    _program.stopUsing();
     
     glDepthFunc(GL_LESS);
 }
