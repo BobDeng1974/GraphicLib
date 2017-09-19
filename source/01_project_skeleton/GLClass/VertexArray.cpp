@@ -31,6 +31,10 @@ GLvoid VertexArray::drawArray(GLint first, GLsizei count , GLenum mode /*= GL_TR
     glDrawArrays(mode , first, count);
 }
 
+GLvoid VertexArray::drawElements(GLsizei count, GLenum type, const GLvoid *indices , GLenum mode  /*= GL_TRIANGLES*/){
+    glDrawElements(mode, count, type, indices);
+}
+
 GLvoid VertexArray::parseData(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid *pointer){
     glVertexAttribPointer(index , size , type , normalized , stride , pointer);
 }

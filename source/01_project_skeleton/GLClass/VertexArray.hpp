@@ -30,6 +30,11 @@ namespace zdogl {
         
         GLvoid drawArray(GLint first , GLsizei count , GLenum mode = GL_TRIANGLES);
         
+        GLvoid drawElements(GLsizei count,
+                            GLenum type,
+                            const GLvoid * indices,
+                            GLenum mode = GL_TRIANGLES);
+        
         /**
          * 解析数据，告诉GPU数据的意义
          * @param  index      属性索引
