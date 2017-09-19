@@ -67,9 +67,10 @@ void Sprite::draw(float dt){
     
     _vao.bind();
     
+    _texture.bind();
+    
     _texture.active(0);
     
-    _texture.bind();
     
     if (_position.x < 0.1f) {
         _rotate += dt * 45;

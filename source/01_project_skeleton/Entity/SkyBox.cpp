@@ -106,11 +106,14 @@ void SkyBox::draw(float dt){
     glm::mat4 view = glm::mat4(glm::mat3(camera->getViewMat()));
     
     _program.use();
+    _textureCube.bind();
+    _vao.bind();
     _program.setUniform("view", view);
     _program.setUniform("projection" , camera->getProjectionMat());
-    _vao.bind();
+    _program.setUniform("skybox" , 0);
     
-    _textureCube.bind();
+    
+    _textureCube.active(0);
     
     _vao.drawElements(36, GL_UNSIGNED_BYTE, nullptr);
     
