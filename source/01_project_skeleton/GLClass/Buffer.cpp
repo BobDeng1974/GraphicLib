@@ -50,7 +50,6 @@ _usage(usage){
 }
 
 void Buffer::inflateBuffer(GLuint size , GLvoid * p ,  GLenum usage /*= GL_STATIC_DRAW*/){
-    bind();
     glBufferData(_bufferType , size , p , usage);
     _usage = usage;
     _dataSize = size;

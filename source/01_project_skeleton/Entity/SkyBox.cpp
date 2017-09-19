@@ -61,9 +61,11 @@ void SkyBox::initVao(){
     
     _vao.bind();
     zdogl::Buffer vbo(GL_ARRAY_BUFFER);
+    vbo.bind();
     vbo.inflateBuffer(sizeof(vexBuf) , vexBuf);
     
     zdogl::Buffer ebo(GL_ELEMENT_ARRAY_BUFFER);
+    ebo.bind();
     ebo.inflateBuffer(sizeof(idxBuf), idxBuf);
     
     _vao.setEnabled(true , _program.getAttribIndex("aPos"));
@@ -74,8 +76,7 @@ void SkyBox::initVao(){
                    3 * sizeof(GLfloat),
                    (GLvoid *)0);
     
-    ebo.bind();
-    vbo.bind();
+    vbo.unbind();
     _vao.unbind();
 }
 

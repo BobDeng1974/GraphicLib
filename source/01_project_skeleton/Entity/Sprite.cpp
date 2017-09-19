@@ -159,13 +159,11 @@ bool Sprite::initVao(){
     };
     GLint size = sizeof(vertexData);
     
-    zdogl::Buffer vbo;
-    vbo.setBufferType(GL_ARRAY_BUFFER);
+    zdogl::Buffer vbo(GL_ARRAY_BUFFER);
+    _vao.bind();
+    vbo.bind();
     vbo.inflateBuffer(size , vertexData , GL_STATIC_DRAW);
     
-    _vao.addBuffer(vbo);
-    
-    _vao.bind();
     
     _vao.setEnabled(true , _program.getAttribIndex("vertex"));
     _vao.parseData(_program.getAttribIndex("vertex"),
@@ -190,7 +188,7 @@ bool Sprite::initVao(){
                           GL_FALSE,
                           8 * sizeof(GLfloat),
                           (GLvoid *)(3 * sizeof(GLfloat)));
-    
+    vbo.unbind();
     _vao.unbind();
     
     return true;
