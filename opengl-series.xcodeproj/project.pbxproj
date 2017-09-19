@@ -147,8 +147,6 @@
 		F67E78111F684090004B19C6 /* left.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67E780B1F684090004B19C6 /* left.jpg */; };
 		F67E78121F684090004B19C6 /* right.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67E780C1F684090004B19C6 /* right.jpg */; };
 		F67E78131F684090004B19C6 /* top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67E780D1F684090004B19C6 /* top.jpg */; };
-		F67E78161F68D8DF004B19C6 /* cubeFs.glsl in Resources */ = {isa = PBXBuildFile; fileRef = F67E78141F68D8DF004B19C6 /* cubeFs.glsl */; };
-		F67E78171F68D8DF004B19C6 /* cubeVs.glsl in Resources */ = {isa = PBXBuildFile; fileRef = F67E78151F68D8DF004B19C6 /* cubeVs.glsl */; };
 		F6B074B41D1D10230089A2EA /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074B21D1D10230089A2EA /* Object.cpp */; };
 		F6B074B71D1D122B0089A2EA /* Program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074B51D1D122B0089A2EA /* Program.cpp */; };
 		F6B074BB1D1D12EC0089A2EA /* Ref.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B074B91D1D12EC0089A2EA /* Ref.cpp */; };
@@ -305,8 +303,6 @@
 		F67E780B1F684090004B19C6 /* left.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = left.jpg; sourceTree = "<group>"; };
 		F67E780C1F684090004B19C6 /* right.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = right.jpg; sourceTree = "<group>"; };
 		F67E780D1F684090004B19C6 /* top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = top.jpg; sourceTree = "<group>"; };
-		F67E78141F68D8DF004B19C6 /* cubeFs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cubeFs.glsl; sourceTree = "<group>"; };
-		F67E78151F68D8DF004B19C6 /* cubeVs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cubeVs.glsl; sourceTree = "<group>"; };
 		F6B074B21D1D10230089A2EA /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		F6B074B31D1D10230089A2EA /* Object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
 		F6B074B51D1D122B0089A2EA /* Program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Program.cpp; sourceTree = "<group>"; };
@@ -503,8 +499,6 @@
 				F67E780A1F684090004B19C6 /* front.jpg */,
 				F67E780B1F684090004B19C6 /* left.jpg */,
 				F67E780C1F684090004B19C6 /* right.jpg */,
-				F67E78141F68D8DF004B19C6 /* cubeFs.glsl */,
-				F67E78151F68D8DF004B19C6 /* cubeVs.glsl */,
 				F67E780D1F684090004B19C6 /* top.jpg */,
 				E2639AFE190D174200B6251A /* fragment-shader.txt */,
 				E2639AFF190D174200B6251A /* vertex-shader.txt */,
@@ -1109,7 +1103,6 @@
 				F6477C0A1D20E4810049474C /* wooden-crate.jpg in Resources */,
 				F61BC7901F6B78DF0011AF82 /* skyBoxVs.glsl in Resources */,
 				F61BC79E1F6D055B0011AF82 /* front.jpg in Resources */,
-				F67E78161F68D8DF004B19C6 /* cubeFs.glsl in Resources */,
 				F61BC79F1F6D055B0011AF82 /* left.jpg in Resources */,
 				F67E78101F684090004B19C6 /* front.jpg in Resources */,
 				E2639B08190D174200B6251A /* vertex-shader.txt in Resources */,
@@ -1120,7 +1113,6 @@
 				F61BC78F1F6B78DF0011AF82 /* skyBoxFs.glsl in Resources */,
 				F67E780F1F684090004B19C6 /* bottom.jpg in Resources */,
 				F6F914B41D20623F00FFA244 /* FragmentShader.glsl in Resources */,
-				F67E78171F68D8DF004B19C6 /* cubeVs.glsl in Resources */,
 				F61BC7A11F6D055B0011AF82 /* top.jpg in Resources */,
 				F67E780E1F684090004B19C6 /* back.jpg in Resources */,
 				F6F914B21D2061F200FFA244 /* VertexShader.glsl in Resources */,
