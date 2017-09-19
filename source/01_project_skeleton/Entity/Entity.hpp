@@ -27,7 +27,11 @@ namespace ze {
         
         ~Entity();
         
+        virtual void _begin();
+        
         virtual void draw(float dt);
+        
+        virtual void _end();
         
         virtual bool init();
         

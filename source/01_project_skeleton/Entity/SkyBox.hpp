@@ -30,6 +30,10 @@ namespace ze{
         
         virtual void initVao();
         
+        virtual void _begin();
+        
+        virtual void _end();
+        
         virtual void draw(float dt);
         
         bool init(const std::vector<const GLchar *> &faces);

@@ -34,6 +34,10 @@ namespace ze {
         
         bool initProgram();
         
+        virtual void _begin();
+        
+        virtual void _end();
+        
         virtual void draw(float dt);
         
     protected:

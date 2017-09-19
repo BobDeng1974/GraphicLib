@@ -25,8 +25,15 @@ Entity::~Entity(){
 
 bool Entity::init(){
     
-    
     return true;
+}
+
+void Entity::_begin(){
+    
+}
+
+void Entity::_end(){
+    
 }
 
 void Entity::draw(float dt){

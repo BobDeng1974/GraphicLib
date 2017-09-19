@@ -99,6 +99,20 @@ bool SkyBox::init(const std::vector<const GLchar *> &faces){
     return true;
 }
 
+void SkyBox::_begin(){
+    _program.use();
+    _textureCube.bind();
+    _vao.bind();
+}
+
+void SkyBox::_end(){
+    _textureCube.unbind();
+    
+    _vao.unbind();
+    
+    _program.stopUsing();
+}
+
 void SkyBox::draw(float dt){
     
     Camera * camera = ze::Director::getInstance()->getCamera();
@@ -106,9 +120,7 @@ void SkyBox::draw(float dt){
     glDepthFunc(GL_LEQUAL);
     glm::mat4 view = glm::mat4(glm::mat3(camera->getViewMat()));
     
-    _program.use();
-    _textureCube.bind();
-    _vao.bind();
+    _begin();
     _program.setUniform("view", view);
     _program.setUniform("projection" , camera->getProjectionMat());
     _program.setUniform("skybox" , 0);
@@ -118,11 +130,7 @@ void SkyBox::draw(float dt){
     
     _vao.drawElements(36, GL_UNSIGNED_BYTE, nullptr);
     
-    _textureCube.unbind();
-    
-    _vao.unbind();
-    
-    _program.stopUsing();
+    _end();
     
     glDepthFunc(GL_LESS);
 }

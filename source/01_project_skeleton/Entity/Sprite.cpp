@@ -50,6 +50,21 @@ bool Sprite::initProgram(){
     return true;
 }
 
+void Sprite::_begin(){
+    _program.use();
+    
+    _vao.bind();
+    
+    _texture.bind();
+}
+
+void Sprite::_end(){
+    _vao.unbind();
+    
+    _texture.unbind();
+    
+    _program.stopUsing();
+}
 
 void Sprite::draw(float dt){
     
@@ -63,11 +78,7 @@ void Sprite::draw(float dt){
     }
     
     //启用shader程序
-    _program.use();
-    
-    _vao.bind();
-    
-    _texture.bind();
+    _begin();
     
     _texture.active(0);
     
@@ -96,11 +107,7 @@ void Sprite::draw(float dt){
     
     _vao.drawArray(0 , 36);
     
-    _vao.unbind();
-    
-    _texture.unbind();
-    
-    _program.stopUsing();
+    _end();
     
 }
 
